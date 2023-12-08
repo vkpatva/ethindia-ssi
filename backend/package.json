@@ -10,13 +10,19 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@iden3/js-iden3-auth": "^1.0.0-beta.7",
+        "concurrently": "^6.5.1",
         "cors": "^2.8.5",
         "dotenv": "^16.3.1",
         "express": "^4.18.2",
         "fs": "^0.0.1-security",
         "http": "^0.0.1-security",
+        "http-status-code": "^2.1.0",
+        "express-fileupload": "^1.4.0",
         "moment": "^2.29.4",
+        "ts-node": "^8.1.0",
         "path": "^0.12.7",
-        "winston": "^3.11.0"
+        "winston": "^3.11.0",
+        "socket.io": "^4.6.2"
     }
 }
