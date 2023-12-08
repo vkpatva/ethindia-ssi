@@ -1,4 +1,4 @@
-export const Spinner = () => {
+export const Spinner = ({ status }: { status: string }) => {
   // used from : https:codepen.io/nikhil8krishnan/pen/rVoXJa
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden bg-[#202323] opacity-75 flex flex-col items-center justify-center">
@@ -37,6 +37,9 @@ export const Spinner = () => {
           </rect>
         </svg>
       </div>
+      <h2 className="text-center text-white text-xl font-semibold">
+        <p className="w-auto text-center text-white">{status}</p>
+      </h2>
     </div>
   );
 };

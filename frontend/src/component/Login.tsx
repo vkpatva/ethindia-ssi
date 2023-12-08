@@ -1,12 +1,76 @@
 import { Field, Form } from "react-final-form";
-
+import { registerAccount, verifyChallenge } from "../utils/webauthn";
+import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
+import { connectDirectly, connectSmartWallet } from "../utils/wallet";
+import { Connected } from "./Connected";
+import { Spinner } from "./Spinner";
+import { Error } from "./Error";
 type RegisterForm = {
   username: string;
 };
 export const Login = () => {
+  const [signer, setSigner] = useState<any>(undefined);
+  const [loadingStatus, setLoadingStatus] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
+
+  useEffect(() => {
+    checkLoggedIn();
+  }, []);
+  const generateRandomChallenge = (length: number) => {
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let randomString = "";
+
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      randomString += characters.charAt(randomIndex);
+    }
+
+    return randomString;
+  };
+  const register = async (accountName: string) => {
+    try {
+      const challenge = generateRandomChallenge(100);
+      await registerAccount(accountName, challenge);
+      toast("User Registered", { type: "info" });
+    } catch (err) {
+      toast("Fail to register", { type: "error" });
+      console.log(err);
+    }
+  };
+  const connectWallet = async (userName: string, password: string) => {
+    try {
+      setIsLoading(true);
+      const wallet = await connectSmartWallet(userName, password, (status) =>
+        setLoadingStatus(status)
+      );
+      const s = await wallet.getSigner();
+      setSigner(s);
+      setIsLoading(false);
+    } catch (err) {
+      setIsLoading(false);
+      console.error(error);
+      setError((err as any).message);
+    }
+  };
+  const verify = async () => {
+    try {
+      const challenge = generateRandomChallenge(100);
+      const { signature, rawId } = await verifyChallenge(challenge);
+      if (signature && rawId) {
+        console.log(signature, rawId);
+        await connectWallet(rawId, signature);
+      }
+      toast("User Logged In", { type: "info" });
+    } catch (err) {
+      toast("Fail to login");
+      console.log(err);
+    }
+  };
   const onSubmit = (values: RegisterForm) => {
-    console.log(values);
-    return;
+    register(values.username);
   };
   const validate = (values: RegisterForm) => {
     const errors: Partial<RegisterForm> = {};
@@ -15,7 +79,29 @@ export const Login = () => {
     }
     return errors;
   };
-  return (
+  const checkLoggedIn = async () => {
+    const encryptedWallet = localStorage.getItem("encryptedWallet");
+    const encryptedPassword = localStorage.getItem("encryptedPassword");
+    if (encryptedPassword && encryptedWallet) {
+      setIsLoading(true);
+
+      const wallet = await connectDirectly(
+        encryptedWallet,
+        encryptedPassword,
+        (status) => setLoadingStatus(status)
+      );
+      const s = await wallet.getSigner();
+      setSigner(s);
+      setIsLoading(false);
+    }
+  };
+  return signer ? (
+    <Connected signer={signer} />
+  ) : isLoading ? (
+    <Spinner status={loadingStatus} />
+  ) : error ? (
+    <Error />
+  ) : (
     <div className="flex min-h-screen flex-1 flex-col justify-center px-6 py-12 lg:px-8 dark:bg-[#232323] dark:text-white">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
@@ -82,7 +168,7 @@ export const Login = () => {
           <button
             type="button"
             className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-800 dark:hover:bg-indigo-700"
-            onClick={() => {}}
+            onClick={() => verify()}
           >
             Login With Passkey 🔑
           </button>
