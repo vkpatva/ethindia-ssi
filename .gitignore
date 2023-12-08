@@ -7,6 +7,8 @@
 node_modules/
 build/
 
+./.vscode
+
 # .env file
 .env
 
