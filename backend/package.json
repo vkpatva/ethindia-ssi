@@ -3,10 +3,15 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
     "keywords": [],
+    "scripts": {
+        "dev:tsc": "tsc -w",
+        "dev:node": "nodemon build/server.js",
+        "dev": "npm run lint:check && concurrently npm:dev:*",
+        "start": "npm run lint:check && tsc && node build/server.js",
+        "build": "npm run lint:check && bash -c tsc -p tsconfig.json --noEmit",
+        "prepare": "husky install"
+    },
     "author": "",
     "license": "ISC",
     "dependencies": {
