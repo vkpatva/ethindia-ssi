@@ -1,5 +1,4 @@
 import express, { Application, NextFunction, Request, Response } from "express"
-import fileUpload from "express-fileupload"
 import { logger } from "../utils/logger"
 import { i18n } from "./i18n"
 // import swagger from './swagger'
@@ -9,7 +8,6 @@ export default (app: Application) => {
     app.use(express.json())
     app.use(express.urlencoded({ limit: "500mb", extended: true }))
     app.use(i18n.init) // support internationalization
-    app.use(fileUpload())
 
     app.use(underMaintenanceCheck) // check to see if app is under maintenance
     uuid(app) // add uuid in req if not available
