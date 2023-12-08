@@ -4,7 +4,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter } from "react-router-dom";
-
+import "./index.css";
 const activeChain = "mumbai";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
