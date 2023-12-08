@@ -1,4 +1,5 @@
-import { Error } from "./Error";
+import { Spinner } from "./Spinner";
+
 export const Login = () => {
-  return <Error />;
+  return <Spinner />;
 };
