@@ -1,13 +1,9 @@
 import STATUS_CODES from "http-status-codes"
-import { CustomRequest, CustomResponse, Pager } from "../../../environment"
-import { RECORDS_PER_PAGE } from "../../../utils/constants"
-import { createResponse, getDefaultSortOrder } from "../../../utils/helper"
-import Helper from "./VerifyHelper"
-import { SessionModel } from "../model"
+import { CustomRequest, CustomResponse, Pager } from "../../environment"
+import { RECORDS_PER_PAGE } from "../../utils/constants"
+import { createResponse, getDefaultSortOrder } from "../../utils/helper"
 import { logger } from "../../utils/logger"
-import sequelize from "../../utils/dbConfig"
-import { SessionMaster } from "../schema"
-import { addWhitelistedAddress } from "../../../services/blockchain/Whitelist"
+// import sequelize from "../../utils/dbConfig"
 import { io } from "../../server"
 import { auth, resolver, protocol } from "@iden3/js-iden3-auth"
 import { humanReadableAuthReason } from "./proofRequests"
@@ -66,10 +62,10 @@ class VerifyController {
 
             io.sockets.emit(sessionId, socketMessage("getAuthQr", STATUS.DONE, request))
 
-            createResponse(res, STATUS_CODES.OK, res.__("Auth Qr generated successfully"), request)
+            createResponse(res, STATUS_CODES.OK, "Auth Qr generated successfully", request)
         } catch (error) {
             logger.error(__filename, "authQR", req.custom.uuid, "authQR", error)
-            createResponse(res, STATUS_CODES.INTERNAL_SERVER_ERROR, res.__("SERVER_ERROR"))
+            createResponse(res, STATUS_CODES.INTERNAL_SERVER_ERROR, "SERVER_ERROR")
         }
     }
 }
