@@ -67,8 +67,8 @@ type TimelineItem = {
 
 const Timeline = ({ timelineData }: { timelineData: TimelineItem[] }) => {
   return (
-    <div className="container bg-[#222] mx-auto w-full h-full rounded-lg">
-      <div className="relative wrap overflow-hidden p-10 h-full">
+    <div className="container bg-[#222] mx-auto  w-full h-full rounded-lg">
+      <div className="relative wrap overflow-hidden px-[200px] py-10 h-full">
         {timelineData.map((item, index) => (
           <TimelineItem
             key={index}
