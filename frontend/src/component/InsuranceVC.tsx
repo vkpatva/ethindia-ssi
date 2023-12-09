@@ -3,7 +3,15 @@ import { CredReqCard } from "./CredRequestCard";
 import { useState } from "react";
 import { CredReqMultiple } from "./CredReqCardMultiple";
 import { useNavigate } from "react-router-dom";
-import LoginSVG from "../assets/verify.svg";
+import VcSVG from "../assets/employment.svg";
+import CompanyPNG from "../assets/business-and-trade.png";
+import LabPng from "../assets/patient.png";
+import EmpPng from "../assets/proof-of-concept.png";
+import AuthSVG from "../assets/authentication.svg";
+import InsurancePng from "../assets/insurance.png";
+import PowerPNG from "../assets/power.svg";
+import NotificationSVG from "../assets/notification.svg";
+
 export const Insurance = () => {
   const [steps, setSteps] = useState(1);
   const navigate = useNavigate();
@@ -37,7 +45,7 @@ export const Insurance = () => {
       </header>
       <div className="relative flex flex-col justify-center overflow-hidden rounded-lg bg-[#3A3B3B] w-[75vw] h-[80vh]">
         {steps == 1 ? (
-          <CredContainer logo={LoginSVG}>
+          <CredContainer logo={VcSVG}>
             <div className="flex flex-col items-center h-full justify-between py-6">
               <div className="  flex flex-col leading-loose ">
                 <div className="flex-1 my-4">
@@ -58,19 +66,19 @@ export const Insurance = () => {
                   <div className="flex flex-col items-center justify-center h-full">
                     <CredReqCard
                       title={"You're connecting with"}
-                      logo={LoginSVG}
+                      logo={CompanyPNG}
                       content={"Tata AIA Insurance"}
                     ></CredReqCard>
                     <CredReqMultiple
                       title={"You need to present"}
                       infoArray={[
-                        { logo: LoginSVG, content: "Employment Proof" },
-                        { logo: LoginSVG, content: "Laboratory Report" },
+                        { logo: EmpPng, content: "Employment Proof" },
+                        { logo: LabPng, content: "Laboratory Report" },
                       ]}
                     ></CredReqMultiple>
                     <CredReqCard
                       title={"You'll receive"}
-                      logo={LoginSVG}
+                      logo={InsurancePng}
                       content={"Term Insurance VC"}
                     ></CredReqCard>
                   </div>
@@ -86,7 +94,7 @@ export const Insurance = () => {
             </div>
           </CredContainer>
         ) : steps == 2 ? (
-          <CredContainer logo={LoginSVG}>
+          <CredContainer logo={AuthSVG}>
             <div className="flex flex-col items-center h-full justify-between py-6">
               <div className="  flex flex-col leading-loose ">
                 <div className="flex-1 my-4">
@@ -113,7 +121,7 @@ export const Insurance = () => {
             </div>
           </CredContainer>
         ) : (
-          <CredContainer logo={LoginSVG}>
+          <CredContainer logo={PowerPNG}>
             <div className="flex flex-col items-center h-full justify-between py-6">
               <div className="  flex flex-col leading-loose ">
                 <div className="flex-1 my-4">
@@ -130,7 +138,7 @@ export const Insurance = () => {
                   </p>
                 </div>
 
-                <img className="mt-10 h-[35vh]" src={LoginSVG} />
+                <img className="mt-10 h-[35vh]" src={NotificationSVG} />
               </div>
               <div className="flex flex-1 items-end justify-end w-[100%]">
                 <div className="has-tooltip" onClick={() => navigate("/")}>

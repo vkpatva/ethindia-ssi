@@ -2,7 +2,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CredReqCard } from "./CredRequestCard";
 import CredContainer from "./CredContainer";
-import LoginSVG from "../assets/verify.svg";
+import HospitalPNG from "../assets/hospital.png";
+import IdPng from "../assets/card.png";
+import HealthPng from "../assets/patient.png";
+import AuthSVG from "../assets/authentication.svg";
+import HealthSVG from "../assets/health.svg";
+import NotificationSVG from "../assets/notification.svg";
+import PowerPNG from "../assets/power.svg";
 
 export const Lab = () => {
   const [steps, setSteps] = useState(1);
@@ -37,7 +43,7 @@ export const Lab = () => {
       </header>
       <div className="relative flex flex-col justify-center overflow-hidden rounded-lg bg-[#3A3B3B] w-[75vw] h-[80vh]">
         {steps == 1 ? (
-          <CredContainer logo={LoginSVG}>
+          <CredContainer logo={HealthSVG}>
             <div className="flex flex-col items-center h-full justify-between py-6">
               <div className="  flex flex-col leading-loose ">
                 <div className="flex-1 my-4">
@@ -57,17 +63,17 @@ export const Lab = () => {
                   <div className="flex flex-col items-center justify-center h-full">
                     <CredReqCard
                       title={"You're connecting with"}
-                      logo={LoginSVG}
+                      logo={HospitalPNG}
                       content={"Accord HealthCare"}
                     ></CredReqCard>
                     <CredReqCard
                       title={"You need to present"}
-                      logo={LoginSVG}
+                      logo={IdPng}
                       content={"National ID Card"}
                     ></CredReqCard>
                     <CredReqCard
                       title={"You'll receive"}
-                      logo={LoginSVG}
+                      logo={HealthPng}
                       content={"Laboratory Report"}
                     ></CredReqCard>
                   </div>
@@ -83,7 +89,7 @@ export const Lab = () => {
             </div>
           </CredContainer>
         ) : steps == 2 ? (
-          <CredContainer logo={LoginSVG}>
+          <CredContainer logo={AuthSVG}>
             <div className="flex flex-col items-center h-full justify-between py-6">
               <div className="  flex flex-col leading-loose ">
                 <div className="flex-1 my-4">
@@ -111,7 +117,7 @@ export const Lab = () => {
             </div>
           </CredContainer>
         ) : (
-          <CredContainer logo={LoginSVG}>
+          <CredContainer logo={PowerPNG}>
             <div className="flex flex-col items-center h-full justify-between py-6">
               <div className="  flex flex-col leading-loose ">
                 <div className="flex-1 my-4">
@@ -128,7 +134,7 @@ export const Lab = () => {
                   </p>
                 </div>
 
-                <img className="mt-10 h-[35vh]" src={LoginSVG} />
+                <img className="mt-10 h-[35vh]" src={NotificationSVG} />
               </div>
               <div className="flex flex-1 items-end justify-end w-[100%]">
                 <div className="has-tooltip" onClick={() => navigate("/")}>
