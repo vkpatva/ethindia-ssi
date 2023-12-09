@@ -5,7 +5,7 @@ import { ConfirmedOwner } from "@chainlink/contracts/src/v0.8/shared/access/Conf
 import { FunctionsRequest } from "@chainlink/contracts/src/v0.8/functions/dev/v1_0_0/libraries/FunctionsRequest.sol";
 import { ClaimToken } from "./ClaimToken.sol";
 
-contract PolygonIdEvent is FunctionsClient, ConfirmedOwner {
+contract CredentialEvents is FunctionsClient, ConfirmedOwner {
     error UnexpectedRequestID(bytes32 requestId);
     error NotWhitelisted(address sender);
 

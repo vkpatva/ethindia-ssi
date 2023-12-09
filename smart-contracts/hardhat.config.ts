@@ -4,6 +4,9 @@ import '@nomicfoundation/hardhat-toolbox'
 import 'hardhat-deploy'
 import 'dotenv/config'
 
+import '@nomicfoundation/hardhat-ethers'
+import 'hardhat-deploy-ethers'
+
 const POLYGON_MUMBAI_RPC_URL = process.env.POLYGON_MUMBAI_RPC_URL || 'https://eth-goerli.alchemyapi.io/v2/your-api-key'
 const PRIVATE_KEY = process.env.PRIVATE_KEY || ''
 const POLYGONSCAN_API_KEY = process.env.POLYGONSCAN_API_KEY || ''
