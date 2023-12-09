@@ -124,7 +124,7 @@ export const Lab = () => {
                       LabVCIssued(signer);
                       NationalIDVerified(
                         signer,
-                        "National ID verify to issue Lab VC"
+                        "National ID need to be verified to issue Lab VC"
                       );
                       setVcVer(true);
                     }}

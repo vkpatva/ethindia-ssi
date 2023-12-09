@@ -7,7 +7,7 @@ import { Insurance } from "./InsuranceVC";
 import { Employment } from "./EmploymentVC";
 import { Lab } from "./LabVC";
 import { Claim } from "./claim";
-import { Timeline } from "./Timeline";
+import { Events } from "./Timeline";
 export const Connected = ({ signer }: { signer: Signer }) => {
   return (
     <ThirdwebSDKProvider
@@ -22,7 +22,7 @@ export const Connected = ({ signer }: { signer: Signer }) => {
         <Route path="/employment" element={<Employment />} />
         <Route path="/lab" element={<Lab />} />
         <Route path="/claim" element={<Claim />} />
-        <Route path="/timeline" element={<Timeline />} />
+        <Route path="/timeline" element={<Events />} />
       </Routes>
     </ThirdwebSDKProvider>
   );

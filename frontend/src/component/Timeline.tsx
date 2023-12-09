@@ -1,9 +1,190 @@
 import { useNavigate } from "react-router-dom";
-
-export const Timeline = () => {
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+type TimelineItem = {
+  title: string;
+  message: string;
+};
+import { Spinner } from "./Spinner";
+import { useEffect, useState } from "react";
+import { useAddress } from "@thirdweb-dev/react";
+import { converter } from "../utils/converter";
+import Timeline from "./TimelineItem";
+export const Events = () => {
   const navigate = useNavigate();
+  const [loadingData, setLoadingData] = useState(false);
+  const address: string = useAddress() as string;
+  const [timelineData, setTimeLineData] = useState<any[]>([]);
+  const QueryURL =
+    "https://api.studio.thegraph.com/query/41629/ces/version/latest";
+  const client = new ApolloClient({
+    uri: QueryURL,
+    cache: new InMemoryCache(),
+  });
+
+  useEffect(() => {
+    if (address) {
+      const query = `
+        query CESQuery($userAddress: String!) {
+          issuranceVCIssueds(where: {user: $userAddress}) {
+            id
+            transactionHash
+            user
+            blockTimestamp
+            blockNumber
+          }
+          claimResponses {
+            transactionHash
+            response
+            requestId
+            id
+            err
+            blockTimestamp
+            blockNumber
+          }
+          employmentVCIssueds(where: {user: $userAddress}) {
+            blockNumber
+            blockTimestamp
+            id
+            transactionHash
+            user
+          }
+          employmentVCVerifieds(
+            where: {user: $userAddress}
+          ) {
+            blockNumber
+            blockTimestamp
+            id
+            reason
+            transactionHash
+            user
+          }
+          issuranceVCVerifieds(
+            where: {user: $userAddress}
+          ) {
+            blockNumber
+            blockTimestamp
+            id
+            reason
+            transactionHash
+            user
+          }
+          labVCVerifieds (where: {user: $userAddress}){
+            blockNumber
+            blockTimestamp
+            id
+            reason
+            transactionHash
+            user
+          }
+          nationalVCIssueds(where: {user: $userAddress}) {
+            blockNumber
+            blockTimestamp
+            id
+            transactionHash
+            user
+          }
+          nationalVCVerifieds(where: {user: $userAddress}) {
+            blockNumber
+            blockTimestamp
+            id
+            reason
+            transactionHash
+            user
+          }
+          requestFulfilleds {
+            CredentialEvents_id
+            blockNumber
+            blockTimestamp
+            id
+            transactionHash
+          }
+          requestSents {
+            CredentialEvents_id
+            blockNumber
+            blockTimestamp
+            id
+            transactionHash
+          }
+          labVCIssueds(where: {user: $userAddress}) {
+            blockNumber
+            blockTimestamp
+            id
+            transactionHash
+            user
+          }
+        }`;
+
+      client
+        .query({
+          query: gql(query),
+          variables: { userAddress: address },
+        })
+        .then((data) => {
+          const finalData = converter(data.data) as any[];
+          console.log(finalData);
+          const processedTimeLineData = finalData.map((item) => {
+            switch (item.title) {
+              case "nationalVCVerified":
+                return {
+                  ...item,
+                  message: `National VC Verified for ${item.reason}`,
+                  title: "National VC Verified",
+                };
+              case "labVCVerified":
+                return {
+                  ...item,
+                  message: `Lab VC Verified for : ${item.reason}`,
+                  title: "Lab VC Verified",
+                };
+              case "employmentVCVerified":
+                return {
+                  ...item,
+                  message: `Employment VC Verified for : ${item.reason}`,
+                  title: "Employment VC Verified",
+                };
+
+              case "labVCIssued":
+                return {
+                  ...item,
+                  message: `Lab VC issued`,
+                  title: "Lab VC Issued",
+                };
+              case "nationalVCIssued":
+                return {
+                  ...item,
+                  message: `National ID issued`,
+                  title: "National ID VC Issued",
+                };
+              case "employmentVCIssued":
+                return {
+                  ...item,
+                  message: `Employment VC ID issued`,
+                  title: "Employment VC Issued",
+                };
+              case "issuranceVCIssued":
+                return {
+                  ...item,
+                  message: `Insurance VC ID issued`,
+                  title: "Insurance VC Issued",
+                };
+              default:
+                return item;
+            }
+          });
+
+          console.log(finalData);
+          setTimeLineData(processedTimeLineData);
+
+          setLoadingData(true);
+        })
+        .catch((err) => {
+          console.log("Error fetching data: ", err);
+        });
+    }
+  }, [address]);
+
   return (
-    <div className="bg-[#3A3B3B] min-h-[100vh] max-w-[100vw] py-10">
+    <div className="bg-[#3A3B3B] min-h-[100vh] max-w-[100vw] py-10 ">
       <header>
         <div className="mx-auto max-w-screen-xl py-4">
           <div className="sm:flex sm:items-center sm:justify-between">
@@ -34,32 +215,11 @@ export const Timeline = () => {
           </div>
         </div>
       </header>
-      <div className="flex flex-col mx-[240px] mt-8 px-6 py-4 bg-[#212223] text-white rounded-lg shadow-lg h-[75vh]">
-        <div className="flex flex-row h-full gap-8 items-center p-[20px]">
-          <div className="w-[35%] bg-[#2f2f2f] rounded-lg shadow-lg p-8 h-full flex flex-col justify-between">
-            <h2 className="text-2xl font-semibold text-white mb-4">
-              File Your Insurance Claim
-            </h2>
-            <img
-              src="src/assets/claim.svg"
-              className="w-full h-[300px] mb-6"
-              alt="Claim Illustration"
-            />
-            <p className="text-gray-300 mb-4">
-              If you've experienced an incident, initiate the insurance claim
-              process now. We will process your claim data using Chainlink
-              Functions. Keep Checking Timeline to know status.
-            </p>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full">
-              Claim Now
-            </button>
-          </div>
-
-          <div className="w-[65%] bg-gray-700 rounded-lg shadow-lg p-8">
-            Show NFT minted
-          </div>
-        </div>
-      </div>
+      {loadingData ? (
+        <Timeline timelineData={timelineData} />
+      ) : (
+        <Spinner status="loading" />
+      )}
     </div>
   );
 };
