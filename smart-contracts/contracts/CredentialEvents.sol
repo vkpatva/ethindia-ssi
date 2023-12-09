@@ -26,8 +26,8 @@ contract CredentialEvents is FunctionsClient, ConfirmedOwner {
     mapping(bytes32 => address) public requestIdToSender;
     ClaimToken public claimToken;
 
-    constructor(address router, address _streamToken) FunctionsClient(router) ConfirmedOwner(msg.sender) {
-        claimToken = ClaimToken(_streamToken);
+    constructor(address router, address _claimToken) FunctionsClient(router) ConfirmedOwner(msg.sender) {
+        claimToken = ClaimToken(_claimToken);
     }
 
     modifier onlyWhitelisted() {
@@ -114,6 +114,6 @@ contract CredentialEvents is FunctionsClient, ConfirmedOwner {
         emit claimResponse(requestId, response, err);
         uint256 claimAmount = uint256(bytes32(response));
         address requester = requestIdToSender[requestId];
-        claimToken.mint(msg.sender, requester);
+        claimToken.mint(requester, claimAmount);
     }
 }
