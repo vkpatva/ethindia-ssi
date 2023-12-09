@@ -84,8 +84,8 @@ export const PolygonIDVerifier = ({
     <div>
       {qrCodeData && (
         <div className="flex flex-row items-center content-center justify-center">
-          <div className="rounded-lg overflow-hidden p-5 bg-white w-300 ">
-            <QRCode size={300} value={qrCodeData} />
+          <div className="rounded-lg overflow-hidden p-5 bg-white w-400 ">
+            <QRCode size={400} value={qrCodeData} />
           </div>
         </div>
       )}
