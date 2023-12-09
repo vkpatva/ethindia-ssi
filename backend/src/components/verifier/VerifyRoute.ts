@@ -19,4 +19,8 @@ router.post('/insurance-issue', (req: Request, res: Response) => {
 	Controller.verifyInsuranceIssue(req, res)
 })
 
+router.post('/whitelist', (req: Request, res: Response) => {
+	Controller.whiteList(req, res)
+})
+
 export default router

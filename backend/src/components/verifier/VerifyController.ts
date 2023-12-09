@@ -9,6 +9,8 @@ import { auth, resolver, protocol } from '@iden3/js-iden3-auth'
 import { humanReadableAuthReason } from './proofRequests'
 import getRawBody from 'raw-body'
 import path from 'path'
+import ethersService from './etherService'
+
 const requestMap = new Map()
 
 const STATUS = {
@@ -231,6 +233,32 @@ class VerifyController {
 			}
 		} catch (error) {
 			logger.error(__filename, 'projectList', req.custom.uuid, 'projectList', error)
+			createResponse(res, STATUS_CODES.INTERNAL_SERVER_ERROR, res.__('SERVER_ERROR'))
+		}
+	}
+
+	async whiteList(req: CustomRequest, res: CustomResponse) {
+		try {
+			const address = req.body.address
+
+			const whiteList = await ethersService.whiteList(address)
+
+			createResponse(res, STATUS_CODES.OK, res.__('whiteList Route: '), { whiteList })
+		} catch (error) {
+			logger.error(__filename, 'whiteList', req.custom.uuid, 'whiteList', error)
+			createResponse(res, STATUS_CODES.INTERNAL_SERVER_ERROR, res.__('SERVER_ERROR'))
+		}
+	}
+
+	async mintNFT(req: CustomRequest, res: CustomResponse) {
+		try {
+			const address = req.body.address
+
+			const mintNFT = await ethersService.mint(address)
+
+			createResponse(res, STATUS_CODES.OK, res.__('mintNFT Route: '), { mintNFT })
+		} catch (error) {
+			logger.error(__filename, 'mintNFT', req.custom.uuid, 'whiteList', error)
 			createResponse(res, STATUS_CODES.INTERNAL_SERVER_ERROR, res.__('SERVER_ERROR'))
 		}
 	}
