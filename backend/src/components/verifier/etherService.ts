@@ -9,14 +9,14 @@ class Web3Service {
 		mumbai: {
 			name: 'mumbai',
 			rpc: process.env.RPC_URL_MUMBAI as string,
-			// chainId: 80001 // 0x13881 in hex
-			chainId: 31337 // 0x13881 in hex
+			chainId: 80001 // 0x13881 in hex
+			// chainId: 31337 // 0x13881 in hex
 		},
 		polygon: {
 			name: 'polygon',
 			rpc: process.env.RPC_URL_POLYGON as string,
-			// chainId: 137
-			chainId: 80001
+			chainId: 137
+			// chainId: 80001
 		}
 	}
 
@@ -59,6 +59,7 @@ class Web3Service {
 	public async mintTo(address: string) {
 		try {
 			const tokenId = BigInt(this.generateRandomNumber())
+			console.log('generated tokenId:', tokenId)
 
 			const txReceipt = await this.termNftContract.safeMint(address, tokenId, process.env.NFT_JSON as string)
 

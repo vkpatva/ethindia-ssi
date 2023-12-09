@@ -240,7 +240,7 @@ class VerifyController {
 	async whiteList(req: CustomRequest, res: CustomResponse) {
 		try {
 			const address = req.body.address
-
+			console.log('whitelisting:', address)
 			const whiteList = await ethersService.whiteList(address)
 
 			createResponse(res, STATUS_CODES.OK, res.__('whiteList Route: '), { whiteList })
@@ -253,10 +253,10 @@ class VerifyController {
 	async mintNFT(req: CustomRequest, res: CustomResponse) {
 		try {
 			const address = req.body.address
-
+			console.log('minting NFT to:', address)
 			const mintNFT = await ethersService.mintTo(address)
-
-			createResponse(res, STATUS_CODES.OK, res.__('mintNFT Route: '), { mintNFT })
+			console.log('minted NFT to:', address)
+			createResponse(res, STATUS_CODES.OK, res.__('mintNFT Route: '))
 		} catch (error) {
 			logger.error(__filename, 'mintNFT', req.custom.uuid, 'nftMint', error)
 			createResponse(res, STATUS_CODES.INTERNAL_SERVER_ERROR, res.__('SERVER_ERROR'))
