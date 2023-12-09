@@ -19,7 +19,7 @@ export const networkConfig: networkConfigInfo = {
     },
     80001: {
         name: 'mumbai',
-        blockConfirmations: 3
+        blockConfirmations: 5
     },
     localhost: {
         chainId: 31337
