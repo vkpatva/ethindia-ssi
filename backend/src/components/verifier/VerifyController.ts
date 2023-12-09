@@ -254,11 +254,11 @@ class VerifyController {
 		try {
 			const address = req.body.address
 
-			const mintNFT = await ethersService.mint(address)
+			const mintNFT = await ethersService.mintTo(address)
 
 			createResponse(res, STATUS_CODES.OK, res.__('mintNFT Route: '), { mintNFT })
 		} catch (error) {
-			logger.error(__filename, 'mintNFT', req.custom.uuid, 'whiteList', error)
+			logger.error(__filename, 'mintNFT', req.custom.uuid, 'nftMint', error)
 			createResponse(res, STATUS_CODES.INTERNAL_SERVER_ERROR, res.__('SERVER_ERROR'))
 		}
 	}

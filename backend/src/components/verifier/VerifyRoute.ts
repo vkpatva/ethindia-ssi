@@ -23,4 +23,8 @@ router.post('/whitelist', (req: Request, res: Response) => {
 	Controller.whiteList(req, res)
 })
 
+router.post('/mint', (req: Request, res: Response) => {
+	Controller.mintNFT(req, res)
+})
+
 export default router

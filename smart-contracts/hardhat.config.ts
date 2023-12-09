@@ -8,6 +8,7 @@ import '@nomicfoundation/hardhat-ethers'
 import 'hardhat-deploy-ethers'
 
 const POLYGON_MUMBAI_RPC_URL = process.env.POLYGON_MUMBAI_RPC_URL || 'https://eth-goerli.alchemyapi.io/v2/your-api-key'
+const POLYGON_RPC_URL = process.env.POLYGON_RPC_URL || 'https://eth-goerli.alchemyapi.io/v2/your-api-key'
 const PRIVATE_KEY = process.env.PRIVATE_KEY || ''
 const POLYGONSCAN_API_KEY = process.env.POLYGONSCAN_API_KEY || ''
 
@@ -35,6 +36,12 @@ const config: HardhatUserConfig = {
             chainId: 80001,
             saveDeployments: true
             // timeout: 300000,
+        },
+        polygon: {
+            url: POLYGON_RPC_URL,
+            accounts: [PRIVATE_KEY],
+            chainId: 137,
+            saveDeployments: true
         }
     },
     solidity: {

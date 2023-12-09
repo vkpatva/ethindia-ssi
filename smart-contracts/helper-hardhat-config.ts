@@ -21,6 +21,10 @@ export const networkConfig: networkConfigInfo = {
         name: 'mumbai',
         blockConfirmations: 5
     },
+    137: {
+        name: 'polygon',
+        blockConfirmations: 5
+    },
     localhost: {
         chainId: 31337
     },
@@ -32,6 +36,9 @@ export const networkConfig: networkConfigInfo = {
     },
     mumbai: {
         chainId: 80001
+    },
+    polygon: {
+        chainId: 137
     }
 }
 

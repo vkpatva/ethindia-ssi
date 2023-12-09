@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Insurance is ERC721, ERC721URIStorage, Ownable {
+contract TermNFT is ERC721, ERC721URIStorage, Ownable {
     mapping(address => bool) private minters;
 
     constructor(address initialOwner) ERC721("Insurance", "TATATERM") Ownable(initialOwner) {}
