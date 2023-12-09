@@ -1,4 +1,7 @@
 import CredContainer from "./CredContainer";
+import { toast } from "react-toastify";
+import PolygonIDVerifier from "./PolygonIdVerifier";
+import { SendInsuranceVC } from "../lib/api";
 import { CredReqCard } from "./CredRequestCard";
 import { useState } from "react";
 import { CredReqMultiple } from "./CredReqCardMultiple";
@@ -14,6 +17,7 @@ import NotificationSVG from "../assets/notification.svg";
 
 export const Insurance = () => {
   const [steps, setSteps] = useState(1);
+  const [vcVer, setVcVer] = useState(false);
   const navigate = useNavigate();
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-[#212223] flex-col">
@@ -109,10 +113,31 @@ export const Insurance = () => {
                     ensures a smooth process. Thank you.
                   </p>
                 </div>
-                <div></div>
+                <div>
+                  <PolygonIDVerifier
+                    onVerificationResult={() => {
+                      toast("Credentials Verified", { type: "info" });
+                      const userId = localStorage.getItem("userId") as string;
+                      SendInsuranceVC(userId);
+                      setVcVer(true);
+                    }}
+                    verificationType="ins"
+                  ></PolygonIDVerifier>
+                </div>
               </div>
               <div className="flex flex-1 items-end justify-end w-[100%]">
-                <div className="has-tooltip" onClick={() => {}}>
+                <div
+                  className="has-tooltip"
+                  onClick={() => {
+                    if (vcVer) {
+                      setSteps(3);
+                    } else {
+                      toast("Verify the required Credentials", {
+                        type: "warning",
+                      });
+                    }
+                  }}
+                >
                   <button className="text-sm bg-white text-black px-3 py-1 rounded font-semibold shadow-sm opacity-100">
                     GET
                   </button>

@@ -9,9 +9,13 @@ import CompanyPNG from "../assets/business-and-trade.png";
 import VcSVG from "../assets/employment.svg";
 import NotificationSVG from "../assets/notification.svg";
 import PowerPNG from "../assets/power.svg";
-
+import { SendEmploymentVC } from "../lib/api";
+import PolygonIDVerifier from "./PolygonIdVerifier";
+import { toast } from "react-toastify";
 export const Employment = () => {
   const [steps, setSteps] = useState(1);
+  const [vcVer, setVcVer] = useState(false);
+
   const navigate = useNavigate();
   return (
     <div className="flex flex-col h-screen w-screen items-center justify-center bg-[#212223] ">
@@ -105,10 +109,30 @@ export const Employment = () => {
                     smooth verification process.
                   </p>
                 </div>
-                <div>{/* QR Code Verifier from backend */}</div>
+                <div>
+                  <PolygonIDVerifier
+                    onVerificationResult={() => {
+                      toast("National Id Verified", { type: "info" });
+                      const userId = localStorage.getItem("userId") as string;
+                      SendEmploymentVC(userId);
+                      setVcVer(true);
+                    }}
+                  ></PolygonIDVerifier>
+                </div>
               </div>
               <div className="flex flex-1 items-end justify-end w-[100%]">
-                <div className="has-tooltip" onClick={() => {}}>
+                <div
+                  className="has-tooltip"
+                  onClick={() => {
+                    if (vcVer) {
+                      setSteps(3);
+                    } else {
+                      toast("Verify the required Credentials", {
+                        type: "warning",
+                      });
+                    }
+                  }}
+                >
                   <button className="text-sm bg-white text-black px-3 py-1 rounded font-semibold shadow-sm opacity-100">
                     GET
                   </button>
