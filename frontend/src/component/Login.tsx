@@ -4,7 +4,6 @@ import {
   registerAccount,
   verifyChallenge,
 } from "../utils/webauthn";
-import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { connectDirectly, connectSmartWallet } from "../utils/wallet";
 import { Connected } from "./Connected";

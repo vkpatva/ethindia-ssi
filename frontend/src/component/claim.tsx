@@ -1,7 +1,12 @@
 import { useNavigate } from "react-router-dom";
+import { makeClaim } from "../lib/SendRequest";
+import { useAddress, useSigner } from "@thirdweb-dev/react";
 
 export const Claim = () => {
   const navigate = useNavigate();
+  const signer = useSigner();
+  const add = useAddress();
+  console.log(add);
   return (
     <div className="bg-[#3A3B3B] h-[100vh] w-[100vw] py-10">
       <header>
@@ -50,7 +55,10 @@ export const Claim = () => {
               process now. We will process your claim data using Chainlink
               Functions. Keep Checking Timeline to know status.
             </p>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full">
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full"
+              onClick={() => makeClaim(signer)}
+            >
               Claim Now
             </button>
           </div>

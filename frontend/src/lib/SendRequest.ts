@@ -7,9 +7,9 @@ import {
 const consumerAddress = ConsumerContract;
 const subscriptionId = SubId;
 
-export const makeRequestMumbai = async (signer: any, songId: string) => {
+export const makeClaim = async (signer: any) => {
   const donId = "fun-polygon-mumbai-1";
-  const args = [songId];
+  const args: any[] = [];
   const gasLimit = 300000;
 
   const functionsConsumer = new ethers.Contract(
@@ -25,7 +25,7 @@ export const makeRequestMumbai = async (signer: any, songId: string) => {
   })
   const finalResponse = await response;
   console.log(finalResponse['data'].id);
-  return Functions.encodeUint256(parseInt(finalResponse['data'].id))
+  return Functions.encodeUint256(parseInt(finalResponse['data'].id * 1000))
     `;
 
   const transaction = await functionsConsumer.sendRequest(

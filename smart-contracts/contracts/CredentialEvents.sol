@@ -113,6 +113,7 @@ contract CredentialEvents is FunctionsClient, ConfirmedOwner {
     function fulfillRequest(bytes32 requestId, bytes memory response, bytes memory err) internal override {
         emit claimResponse(requestId, response, err);
         uint256 claimAmount = uint256(bytes32(response));
-        claimToken.mint(msg.sender, claimAmount);
+        address requester = requestIdToSender[requestId];
+        claimToken.mint(msg.sender, requester);
     }
 }

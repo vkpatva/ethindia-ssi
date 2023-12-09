@@ -5,6 +5,7 @@ import {
   isContractDeployed,
 } from "@thirdweb-dev/react";
 import { credentialAccountFactory } from "./constant";
+import { whiteList } from "../lib/api";
 
 const clientId: string = import.meta.env.VITE_THIRDWEB_APP_ID;
 

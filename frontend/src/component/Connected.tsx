@@ -1,4 +1,4 @@
-import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
+import { ThirdwebSDKProvider, useAddress } from "@thirdweb-dev/react";
 import { Signer } from "ethers";
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./Home";
@@ -8,6 +8,7 @@ import { Employment } from "./EmploymentVC";
 import { Lab } from "./LabVC";
 import { Claim } from "./claim";
 import { Events } from "./Timeline";
+
 export const Connected = ({ signer }: { signer: Signer }) => {
   return (
     <ThirdwebSDKProvider

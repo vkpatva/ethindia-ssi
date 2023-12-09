@@ -32,15 +32,6 @@ export const Events = () => {
             blockTimestamp
             blockNumber
           }
-          claimResponses {
-            transactionHash
-            response
-            requestId
-            id
-            err
-            blockTimestamp
-            blockNumber
-          }
           employmentVCIssueds(where: {user: $userAddress}) {
             blockNumber
             blockTimestamp
@@ -90,20 +81,6 @@ export const Events = () => {
             reason
             transactionHash
             user
-          }
-          requestFulfilleds {
-            CredentialEvents_id
-            blockNumber
-            blockTimestamp
-            id
-            transactionHash
-          }
-          requestSents {
-            CredentialEvents_id
-            blockNumber
-            blockTimestamp
-            id
-            transactionHash
           }
           labVCIssueds(where: {user: $userAddress}) {
             blockNumber
