@@ -171,8 +171,6 @@ export const Events = () => {
                 return item;
             }
           });
-
-          console.log(finalData);
           setTimeLineData(processedTimeLineData);
 
           setLoadingData(true);
