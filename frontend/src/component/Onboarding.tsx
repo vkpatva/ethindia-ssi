@@ -5,6 +5,7 @@ import {
   CheckCredentials,
   CreateConnection,
   GetSessionDetails,
+  // SendEmploymentVC,
   SendGovernmentID,
 } from "../lib/api";
 import QRCode from "react-qr-code";
@@ -84,6 +85,7 @@ export const Onboarding = () => {
                       localStorage.setItem("userId", userId);
                       setUserId(userId);
                       const data = await SendGovernmentID(userId);
+                      // const data = await SendEmploymentVC(userId);
                       setCredId(data.id);
                       localStorage.setItem("govtCredId", data.id);
                       NationalIDIssued(signer);
