@@ -1,5 +1,6 @@
 import { HardhatUserConfig } from 'hardhat/config'
 import '@nomicfoundation/hardhat-toolbox'
+// import '@nomicfoundation/hardhat-verify'
 import 'hardhat-deploy'
 import 'dotenv/config'
 
@@ -48,7 +49,7 @@ const config: HardhatUserConfig = {
                 version: '0.8.19'
             }
         ],
-        version: '0.8.17',
+        // version: '0.8.17',
         settings: {
             optimizer: {
                 enabled: true,
