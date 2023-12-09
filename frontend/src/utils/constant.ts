@@ -1,2 +1,1 @@
-export const credentialAccountFactory =
-  "0xdb25f39c9baa02578c5f88d6c1e800ea17985fbe";
+export const credentialAccountFactory = "0x6d6Bf337A4EaB886420860d41Ec51dE1c31B8d11"
