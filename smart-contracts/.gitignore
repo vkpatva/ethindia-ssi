@@ -1,0 +1,19 @@
+# dependencies
+node_modules
+
+# env file
+.env
+
+# testing
+coverage
+coverage.json
+
+typechain
+typechain-types
+
+#Hardhat files
+cache
+artifacts
+deployments
+
+
