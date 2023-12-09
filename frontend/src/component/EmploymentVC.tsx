@@ -9,6 +9,32 @@ export const Employment = () => {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col h-screen w-screen items-center justify-center bg-[#212223] ">
+      <header>
+        <div className="mx-auto max-w-screen-xl py-4 w-[100vw]">
+          <div
+            className="sm:flex sm:items-center sm:justify-between cursor-pointer"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            <div className="text-center sm:text-left">
+              <img
+                src="public/images/smartsense-white.png"
+                className="h-[70px] w-auto"
+              ></img>
+            </div>
+
+            <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
+              <button
+                className="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
+                type="button"
+              >
+                Timeline
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
       <div className="relative flex flex-col justify-center overflow-hidden rounded-lg bg-[#3A3B3B] w-[75vw] h-[80vh]">
         {steps == 1 ? (
           <CredContainer logo={LoginSVG}>

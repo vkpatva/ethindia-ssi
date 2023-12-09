@@ -34,7 +34,7 @@ export const CredCard = ({
               className="flex flex-row items-center mb-[10px]"
             >
               <img
-                className="w-9 h-9 mr-4"
+                className="w-7 h-7 mr-4"
                 src={icon}
                 alt={`credential-icon-${itemIndex}`}
               />

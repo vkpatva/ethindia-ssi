@@ -14,7 +14,40 @@ export const Home = () => {
   }, []);
   return (
     <div className="bg-[#3A3B3B] h-[100vh] w-[100vw] py-[10px]">
-      <div className="flex flex-col mx-[240px] my-[60px] px-12 py-6 bg-[#212223] text-white rounded-lg shadow-sm ">
+      <header>
+        <div className="mx-auto max-w-screen-xl py-4">
+          <div className="sm:flex sm:items-center sm:justify-between">
+            <div
+              className="text-center sm:text-left cursor-pointer"
+              onClick={() => {
+                nav("/");
+              }}
+            >
+              <img
+                src="public/images/smartsense-white.png"
+                className="h-[70px] w-auto"
+              ></img>
+            </div>
+
+            <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
+              <button
+                className="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
+                type="button"
+              >
+                Timeline
+              </button>
+
+              <button
+                className="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
+                type="button"
+              >
+                Claim
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div className="flex flex-col mx-[240px] mt-[12px] px-12 py-6 bg-[#212223] text-white rounded-lg shadow-sm ">
         <h1
           className="text-3xl md:text-4xl font-bold mb-2"
           style={{ opacity: 1, transform: "none" }}
