@@ -1,5 +1,9 @@
 import { Field, Form } from "react-final-form";
-import { registerAccount, verifyChallenge } from "../utils/webauthn";
+import {
+  generateRandomChallenge,
+  registerAccount,
+  verifyChallenge,
+} from "../utils/webauthn";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { connectDirectly, connectSmartWallet } from "../utils/wallet";
@@ -18,28 +22,7 @@ export const Login = () => {
   useEffect(() => {
     checkLoggedIn();
   }, []);
-  const generateRandomChallenge = (length: number) => {
-    const characters =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let randomString = "";
 
-    for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * characters.length);
-      randomString += characters.charAt(randomIndex);
-    }
-
-    return randomString;
-  };
-  const register = async (accountName: string) => {
-    try {
-      const challenge = generateRandomChallenge(100);
-      await registerAccount(accountName, challenge);
-      toast("User Registered", { type: "info" });
-    } catch (err) {
-      toast("Fail to register", { type: "error" });
-      console.log(err);
-    }
-  };
   const connectWallet = async (userName: string, password: string) => {
     try {
       setIsLoading(true);
@@ -55,17 +38,23 @@ export const Login = () => {
       setError((err as any).message);
     }
   };
+  const register = async (accountName: string) => {
+    try {
+      const challenge = generateRandomChallenge(100);
+      await registerAccount(accountName, challenge);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const verify = async () => {
     try {
       const challenge = generateRandomChallenge(100);
       const { signature, rawId } = await verifyChallenge(challenge);
       if (signature && rawId) {
-        console.log(signature, rawId);
         await connectWallet(rawId, signature);
       }
-      toast("User Logged In", { type: "info" });
     } catch (err) {
-      toast("Fail to login");
       console.log(err);
     }
   };
