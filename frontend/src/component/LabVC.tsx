@@ -1,3 +1,120 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { CredReqCard } from "./CredRequestCard";
+import CredContainer from "./CredContainer";
+import LoginSVG from "../assets/verify.svg";
+
 export const Lab = () => {
-  return <></>;
+  const [steps, setSteps] = useState(1);
+  const navigate = useNavigate();
+  return (
+    <div className="flex flex-col h-screen w-screen items-center justify-center bg-[#212223] ">
+      <div className="relative flex flex-col justify-center overflow-hidden rounded-lg bg-[#3A3B3B] w-[75vw] h-[80vh]">
+        {steps == 1 ? (
+          <CredContainer logo={LoginSVG}>
+            <div className="flex flex-col items-center h-full justify-between py-6">
+              <div className="  flex flex-col leading-loose ">
+                <div className="flex-1 my-4">
+                  <p className="text-3xl md:text-4xl font-semibold text-white">
+                    Get your Laboratory VC 📑
+                  </p>
+                </div>
+                <div className="pt-6 flex-1 mb-6">
+                  <p className="dark:text-white">
+                    Get your Laboratory Verifiable Credential, empowering you
+                    with key health insights. Take control of your well-being
+                    with a comprehensive and secure health profile. Your path to
+                    a healthier future starts here.
+                  </p>
+                </div>
+                <div>
+                  <div className="flex flex-col items-center justify-center h-full">
+                    <CredReqCard
+                      title={"You're connecting with"}
+                      logo={LoginSVG}
+                      content={"Accord HealthCare"}
+                    ></CredReqCard>
+                    <CredReqCard
+                      title={"You need to present"}
+                      logo={LoginSVG}
+                      content={"National ID Card"}
+                    ></CredReqCard>
+                    <CredReqCard
+                      title={"You'll receive"}
+                      logo={LoginSVG}
+                      content={"Laboratory Report"}
+                    ></CredReqCard>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-1 items-end justify-end w-[100%]">
+                <div className="has-tooltip" onClick={() => setSteps(2)}>
+                  <button className="text-sm bg-white text-black px-3 py-1 rounded font-semibold shadow-sm opacity-100">
+                    START
+                  </button>
+                </div>
+              </div>
+            </div>
+          </CredContainer>
+        ) : steps == 2 ? (
+          <CredContainer logo={LoginSVG}>
+            <div className="flex flex-col items-center h-full justify-between py-6">
+              <div className="  flex flex-col leading-loose ">
+                <div className="flex-1 my-4">
+                  <p className="text-3xl md:text-4xl font-semibold text-white">
+                    Verify your National ID 🕵️‍♀️
+                  </p>
+                </div>
+                <div className="pt-6 flex-1 mb-6">
+                  <p className="dark:text-white">
+                    To facilitate the issuance of your Lab Report Verifiable
+                    Credential, we need to verify your valid National ID. Kindly
+                    provide the necessary details for a smooth verification
+                    process. Thank you.
+                  </p>
+                </div>
+                <div>{/* QR Code Verifier from backend */}</div>
+              </div>
+              <div className="flex flex-1 items-end justify-end w-[100%]">
+                <div className="has-tooltip" onClick={() => {}}>
+                  <button className="text-sm bg-white text-black px-3 py-1 rounded font-semibold shadow-sm opacity-100">
+                    GET
+                  </button>
+                </div>
+              </div>
+            </div>
+          </CredContainer>
+        ) : (
+          <CredContainer logo={LoginSVG}>
+            <div className="flex flex-col items-center h-full justify-between py-6">
+              <div className="  flex flex-col leading-loose ">
+                <div className="flex-1 my-4">
+                  <p className="text-3xl md:text-4xl font-semibold text-white">
+                    Check your phone 👀
+                  </p>
+                </div>
+                <div className="pt-6 flex-1 mb-6">
+                  <p className="dark:text-white">
+                    You should have a notification from your phone. Check your
+                    wallet! We’ve sent you the Lab credentials. Experience the
+                    power of verifiable credentials for secure and seamless
+                    verification of your Lab Report.
+                  </p>
+                </div>
+
+                <img className="mt-10 h-[35vh]" src={LoginSVG} />
+              </div>
+              <div className="flex flex-1 items-end justify-end w-[100%]">
+                <div className="has-tooltip" onClick={() => navigate("/")}>
+                  <button className="text-sm bg-white text-black px-3 py-1 rounded font-semibold shadow-sm opacity-100">
+                    HOME
+                  </button>
+                </div>
+              </div>
+            </div>
+          </CredContainer>
+        )}
+      </div>
+    </div>
+  );
 };
