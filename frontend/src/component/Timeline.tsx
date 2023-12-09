@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
-export const Claim = () => {
+export const Timeline = () => {
   const navigate = useNavigate();
   return (
-    <div className="bg-[#3A3B3B] h-[100vh] w-[100vw] py-10">
+    <div className="bg-[#3A3B3B] min-h-[100vh] max-w-[100vw] py-10">
       <header>
         <div className="mx-auto max-w-screen-xl py-4">
           <div className="sm:flex sm:items-center sm:justify-between">
@@ -25,10 +25,10 @@ export const Claim = () => {
                 className="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
                 type="button"
                 onClick={() => {
-                  navigate("/timeline");
+                  navigate("/claim");
                 }}
               >
-                Timeline
+                Claim
               </button>
             </div>
           </div>

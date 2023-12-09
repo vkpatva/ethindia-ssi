@@ -48,6 +48,9 @@ export const Insurance = () => {
               <button
                 className="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
                 type="button"
+                onClick={() => {
+                  navigate("/timeline");
+                }}
               >
                 Timeline
               </button>
