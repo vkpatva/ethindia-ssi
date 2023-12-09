@@ -115,20 +115,4 @@ contract PolygonIdEvent is FunctionsClient, ConfirmedOwner {
         uint256 claimAmount = uint256(bytes32(response));
         claimToken.mint(msg.sender, claimAmount);
     }
-
-    function userRegistered() external {
-        emit Registered(msg.sender);
-    }
-
-    function govIdIssued() external {
-        emit Gov_Id_Vc_Issued(msg.sender);
-    }
-
-    function empIdIssued() external {
-        emit Emp_Vc_Issued(msg.sender);
-    }
-
-    function insuranceIssued() external {
-        emit Insurance_Vc_Issued(msg.sender);
-    }
 }

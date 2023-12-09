@@ -3,10 +3,16 @@ import express, { Request, Response } from 'express'
 import { logger } from './utils/logger'
 import middlewares from './middlewares'
 import routes from './routes'
+import STATUS_CODES from 'http-status-codes'
 
 import cors from 'cors'
 const app: express.Application = express()
-app.use(cors())
+app.use(
+	cors({
+		origin: '*',
+		optionsSuccessStatus: STATUS_CODES.OK // some legacy browsers (IE11; various SmartTVs) choke on 204
+	})
+)
 middlewares(app) // bind middlewares
 
 routes(app) // initialize all routes
