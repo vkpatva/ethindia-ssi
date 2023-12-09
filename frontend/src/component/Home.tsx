@@ -1,8 +1,12 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { CredCard } from "./CredInfoCard";
-import LoginSVG from "../assets/verify.svg";
-
+import EmploymentSVG from "../assets/employment.svg";
+import MedicalSVG from "../assets/Medical.svg";
+import InsuranceSVG from "../assets/insurance.svg";
+import IDCardPNG from "../assets/card.png";
+import LabReportPNG from "../assets/patient.png";
+import EmployeeProofPNG from "../assets/headhunting.png";
 export const Home = () => {
   const nav = useNavigate();
   useEffect(() => {
@@ -60,11 +64,11 @@ export const Home = () => {
         <div className="mx-[40px] flex flex-col ">
           <CredCard
             title={"Get your Employment Proof"}
-            icon={LoginSVG}
+            icon={EmploymentSVG}
             content="Secure your employment proof effortlessly – enroll in the verifiable credentials process today for a seamless career validation. Let your professional achievements shine with a simplified and trustworthy employment verification."
             shareableItems={[
               {
-                icon: LoginSVG,
+                icon: IDCardPNG,
                 text: "National ID Card",
               },
             ]}
@@ -74,11 +78,11 @@ export const Home = () => {
           />
           <CredCard
             title={"Get your Health Report"}
-            icon={LoginSVG}
+            icon={MedicalSVG}
             content="Acquire your Lab Report Verifiable Credentials effortlessly – streamline the process of sharing and verifying your medical information. Enhance trust and transparency in healthcare by utilizing this secure and efficient method for showcasing your lab reports."
             shareableItems={[
               {
-                icon: LoginSVG,
+                icon: IDCardPNG,
                 text: "National ID Card",
               },
             ]}
@@ -89,16 +93,16 @@ export const Home = () => {
 
           <CredCard
             title={"Get your Term Insurance"}
-            icon={LoginSVG}
+            icon={InsuranceSVG}
             content="
         Obtain your Term Insurance Verifiable Credential seamlessly – simplify the verification process for your insurance coverage. Securely access and share your term insurance details, enhancing trust and efficiency in managing your insurance documentation."
             shareableItems={[
               {
-                icon: LoginSVG,
+                icon: LabReportPNG,
                 text: "Health Report",
               },
               {
-                icon: LoginSVG,
+                icon: EmployeeProofPNG,
                 text: "Employment Proof",
               },
             ]}
