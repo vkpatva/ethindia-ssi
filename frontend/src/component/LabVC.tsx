@@ -12,9 +12,13 @@ import PowerPNG from "../assets/power.svg";
 import { SendLabVC } from "../lib/api";
 import PolygonIDVerifier from "./PolygonIdVerifier";
 import { toast } from "react-toastify";
+import { useSigner } from "@thirdweb-dev/react";
+import { Signer } from "ethers";
+import { LabVCIssued, NationalIDVerified } from "../lib/smartcontract";
 export const Lab = () => {
   const [steps, setSteps] = useState(1);
   const [vcVer, setVcVer] = useState(false);
+  const signer = useSigner() as Signer;
   const navigate = useNavigate();
   return (
     <div className="flex flex-col h-screen w-screen items-center justify-center bg-[#212223] ">
@@ -109,12 +113,16 @@ export const Lab = () => {
                   </p>
                 </div>
                 <div>
-                  {" "}
                   <PolygonIDVerifier
                     onVerificationResult={() => {
                       toast("National Id Verified", { type: "info" });
                       const userId = localStorage.getItem("userId") as string;
                       SendLabVC(userId);
+                      LabVCIssued(signer);
+                      NationalIDVerified(
+                        signer,
+                        "National ID verify to issue Lab VC"
+                      );
                       setVcVer(true);
                     }}
                   ></PolygonIDVerifier>
