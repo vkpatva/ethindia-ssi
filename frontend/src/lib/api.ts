@@ -1,5 +1,5 @@
 import axios from "axios";
-const HostURL = "http://3.109.236.18:3002";
+const HostURL = "https://issuer-admin.polygonid.me";
 export const CreateConnection = async () => {
   const response = await axios.get(`${HostURL}/v1/authentication/qrcode`);
 
