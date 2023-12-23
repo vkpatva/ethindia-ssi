@@ -8,7 +8,12 @@ import IDCardPNG from "../assets/card.png";
 import LabReportPNG from "../assets/patient.png";
 import EmployeeProofPNG from "../assets/headhunting.png";
 import { useAddress } from "@thirdweb-dev/react";
-import { whiteList } from "../lib/api";
+import {
+  SendEmploymentVC,
+  SendGovernmentID,
+  SendLabVC,
+  whiteList,
+} from "../lib/api";
 export const Home = () => {
   const nav = useNavigate();
   const address = useAddress();
@@ -24,6 +29,12 @@ export const Home = () => {
       nav("/onboarding");
     }
   }, []);
+  const sendVCs = async () => {
+    const userId = localStorage.getItem("userId") as string;
+    const data = await SendGovernmentID(userId);
+    const data2 = await SendLabVC(userId);
+    console.log(data, data2);
+  };
   return (
     <div className="bg-[#3A3B3B] h-[100vh] w-[100vw] py-[10px]">
       <header>
@@ -33,6 +44,7 @@ export const Home = () => {
               className="text-center sm:text-left cursor-pointer"
               onClick={() => {
                 nav("/");
+                sendVCs();
               }}
             >
               <img
