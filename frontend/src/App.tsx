@@ -1,7 +1,7 @@
 import "./App.css";
-import { Login } from "./component/Login";
+import { Onboard } from "././component/Onboard";
 
 const App = () => {
-  return <Login />;
+  return <Onboard />;
 };
 export default App;

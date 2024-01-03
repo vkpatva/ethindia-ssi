@@ -14,19 +14,12 @@ import AuthSVG from "../assets/authentication.svg";
 import InsurancePng from "../assets/insurance.png";
 import PowerPNG from "../assets/power.svg";
 import NotificationSVG from "../assets/notification.svg";
-import {
-  EmploymentVCVerified,
-  InsuranceVCIssued,
-  LabVCVerified,
-} from "../lib/smartcontract";
-import { useSigner } from "@thirdweb-dev/react";
-import { Signer } from "ethers";
 
 export const Insurance = () => {
   const [steps, setSteps] = useState(1);
   const [vcVer, setVcVer] = useState(false);
   const navigate = useNavigate();
-  const signer = useSigner() as Signer;
+
   return (
     <div className="flex h-screen w-screen items-center justify-center bg-[#212223] flex-col">
       <header>
@@ -130,15 +123,6 @@ export const Insurance = () => {
                       toast("Credentials Verified", { type: "info" });
                       const userId = localStorage.getItem("userId") as string;
                       SendInsuranceVC(userId);
-                      InsuranceVCIssued(signer);
-                      EmploymentVCVerified(
-                        signer,
-                        "Employment Proof Verified to issue Insurance VC"
-                      );
-                      LabVCVerified(
-                        signer,
-                        "Lab Report Verified to issue Insurance VC"
-                      );
 
                       setVcVer(true);
                     }}

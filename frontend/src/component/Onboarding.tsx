@@ -13,12 +13,9 @@ import { toast } from "react-toastify";
 import LoginSVG from "../assets/verify.svg";
 import NotificationSVG from "../assets/notification.svg";
 import GetCredSVG from "../assets/getCred.svg";
-import { NationalIDIssued } from "../lib/smartcontract";
-import { useSigner } from "@thirdweb-dev/react";
-import { Signer } from "ethers";
+
 export const Onboarding = () => {
   const nav = useNavigate();
-  const signer = useSigner() as Signer;
   const [step, setStep] = useState(1);
   const [qrValue, setQRValue] = useState<string>("");
   const [sessionId, setSessionId] = useState<string>("");
@@ -88,7 +85,6 @@ export const Onboarding = () => {
                       // const data = await SendEmploymentVC(userId);
                       setCredId(data.id);
                       localStorage.setItem("govtCredId", data.id);
-                      NationalIDIssued(signer);
                     } else {
                       console.log("user did not logged in");
                       toast("Please Connect to QR", { type: "error" });

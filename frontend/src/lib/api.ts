@@ -202,13 +202,3 @@ export const fetchInsuranceQR = async (sessionId: string) => {
   const data = JSON.stringify(response.data.payload);
   return data;
 };
-
-export const whiteList = async (address: string) => {
-  const response = await axios.post(`http://localhost:4007/verify/whitelist`, {
-    address,
-  });
-  console.log(response);
-  if (response.status == 200) {
-    return true;
-  }
-};

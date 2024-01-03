@@ -7,21 +7,10 @@ import InsuranceSVG from "../assets/insurance.svg";
 import IDCardPNG from "../assets/card.png";
 import LabReportPNG from "../assets/patient.png";
 import EmployeeProofPNG from "../assets/headhunting.png";
-import { useAddress } from "@thirdweb-dev/react";
-import {
-  SendEmploymentVC,
-  SendInsuranceVC,
-  SendLabVC,
-  whiteList,
-} from "../lib/api";
+import { SendEmploymentVC, SendLabVC } from "../lib/api";
 export const Home = () => {
   const nav = useNavigate();
-  const address = useAddress();
-  useEffect(() => {
-    if (address) {
-      whiteList(address);
-    }
-  }, [address]);
+
   useEffect(() => {
     const onboard = localStorage.getItem("onboard");
     console.log(onboard);
