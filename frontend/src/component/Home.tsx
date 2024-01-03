@@ -10,7 +10,7 @@ import EmployeeProofPNG from "../assets/headhunting.png";
 import { useAddress } from "@thirdweb-dev/react";
 import {
   SendEmploymentVC,
-  SendGovernmentID,
+  SendInsuranceVC,
   SendLabVC,
   whiteList,
 } from "../lib/api";
@@ -31,7 +31,7 @@ export const Home = () => {
   }, []);
   const sendVCs = async () => {
     const userId = localStorage.getItem("userId") as string;
-    const data = await SendGovernmentID(userId);
+    const data = await SendEmploymentVC(userId);
     const data2 = await SendLabVC(userId);
     console.log(data, data2);
   };

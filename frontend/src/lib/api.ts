@@ -138,7 +138,7 @@ export const SendInsuranceVC = async (userID: string) => {
         credentialSchema:
           "ipfs://QmbDA7qeACRHWbQpY7ogoQdUkeqP2gkEJj8HmTcXfGRcVK",
         credentialSubject: {
-          issurance_amount: 9999996,
+          issurance_amount: 1000000000,
           id: userID,
         },
         expiration: null,

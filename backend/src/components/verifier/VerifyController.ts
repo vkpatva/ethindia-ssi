@@ -25,7 +25,7 @@ const socketMessage = (fn: string, status: string, data: any) => ({
 	data
 })
 
-const NGROK = `https://aa01-203-129-213-98.ngrok-free.app`
+const NGROK = `https://9dcb-203-129-213-98.ngrok-free.app`
 class VerifyController {
 	async authQR(req: CustomRequest, res: CustomResponse) {
 		try {
