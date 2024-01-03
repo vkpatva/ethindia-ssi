@@ -1,15 +1,12 @@
 import STATUS_CODES from 'http-status-codes'
 import { CustomRequest, CustomResponse, Pager } from '../../environment'
-import { RECORDS_PER_PAGE } from '../../utils/constants'
-import { createResponse, getDefaultSortOrder } from '../../utils/helper'
+import { createResponse } from '../../utils/helper'
 import { logger } from '../../utils/logger'
-// import sequelize from "../../utils/dbConfig"
 import { io } from '../../server'
 import { auth, resolver, protocol } from '@iden3/js-iden3-auth'
 import { humanReadableAuthReason } from './proofRequests'
 import getRawBody from 'raw-body'
 import path from 'path'
-import ethersService from './etherService'
 
 const requestMap = new Map()
 
@@ -25,7 +22,7 @@ const socketMessage = (fn: string, status: string, data: any) => ({
 	data
 })
 
-const NGROK = `https://9dcb-203-129-213-98.ngrok-free.app`
+const NGROK = process.env.NGROK_URL as string
 class VerifyController {
 	async authQR(req: CustomRequest, res: CustomResponse) {
 		try {
@@ -98,7 +95,6 @@ class VerifyController {
 				['polygon:mumbai']: ethStateResolver
 			}
 
-			console.log(path.join(__dirname, keyDIR))
 			const verifier = await auth.Verifier.newVerifier({
 				stateResolver: resolvers,
 				circuitsDir: path.join(__dirname, keyDIR),
@@ -210,7 +206,6 @@ class VerifyController {
 				['polygon:mumbai']: ethStateResolver
 			}
 
-			console.log(path.join(__dirname, keyDIR))
 			const verifier = await auth.Verifier.newVerifier({
 				stateResolver: resolvers,
 				circuitsDir: path.join(__dirname, keyDIR),
@@ -233,32 +228,6 @@ class VerifyController {
 			}
 		} catch (error) {
 			logger.error(__filename, 'projectList', req.custom.uuid, 'projectList', error)
-			createResponse(res, STATUS_CODES.INTERNAL_SERVER_ERROR, res.__('SERVER_ERROR'))
-		}
-	}
-
-	async whiteList(req: CustomRequest, res: CustomResponse) {
-		try {
-			const address = req.body.address
-			console.log('whitelisting:', address)
-			const whiteList = await ethersService.whiteList(address)
-
-			createResponse(res, STATUS_CODES.OK, res.__('whiteList Route: '), { whiteList })
-		} catch (error) {
-			logger.error(__filename, 'whiteList', req.custom.uuid, 'whiteList', error)
-			createResponse(res, STATUS_CODES.INTERNAL_SERVER_ERROR, res.__('SERVER_ERROR'))
-		}
-	}
-
-	async mintNFT(req: CustomRequest, res: CustomResponse) {
-		try {
-			const address = req.body.address
-			console.log('minting NFT to:', address)
-			const mintNFT = await ethersService.mintTo(address)
-			console.log('minted NFT to:', address)
-			createResponse(res, STATUS_CODES.OK, res.__('mintNFT Route: '))
-		} catch (error) {
-			logger.error(__filename, 'mintNFT', req.custom.uuid, 'nftMint', error)
 			createResponse(res, STATUS_CODES.INTERNAL_SERVER_ERROR, res.__('SERVER_ERROR'))
 		}
 	}
