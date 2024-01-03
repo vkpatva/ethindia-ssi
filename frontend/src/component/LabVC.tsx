@@ -33,18 +33,6 @@ export const Lab = () => {
                 className="h-[70px] w-auto"
               ></img>
             </div>
-
-            <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
-              <button
-                className="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
-                type="button"
-                onClick={() => {
-                  navigate("/timeline");
-                }}
-              >
-                Timeline
-              </button>
-            </div>
           </div>
         </div>
       </header>
