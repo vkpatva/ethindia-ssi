@@ -119,7 +119,7 @@ To successfully run this project, ensure you have the following:
 
 ## Credits
 
-- **SmartSense Team:** Development support for the project.
+- **smartSense Team:** Development support for the project.
 - **Polygon ID Team:** Assistance during the hackathon to build the project.
 
 ## License
