@@ -1,11 +1,6 @@
-import { Application } from "express"
-import VerifyRoutes from "../components/verifier/index"
-/**
- * Init All routes here
- */
-export default (app: Application) => {
-    // Public routes
+import { Application } from 'express'
+import VerifyRoutes from '../components/verifier/index'
 
-    //Private routes
-    app.use("/verify", VerifyRoutes)
+export default (app: Application) => {
+	app.use('/verify', VerifyRoutes)
 }

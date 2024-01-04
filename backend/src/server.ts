@@ -9,11 +9,8 @@ config({
 	path: resolve(__dirname, '../.env')
 })
 
-/**
- * Load App
- */
 import app from './app'
-// import sequelize from "./utils/dbConfig"
+
 import { Server } from 'socket.io'
 
 const server = createServer(app)
@@ -26,16 +23,9 @@ const io = new Server(server, {
 })
 ;(async () => {
 	try {
-		// await sequelize.authenticate()
-		// await sequelize.sync({ force: true })
-		// await sequelize.sync()
-		logger.info(__filename, '', '', `DB Connection has been established successfully`, ``)
-
 		server.listen(port, () => {
 			logger.info(__filename, '', '', `Server is running on ${port}`, ``)
 		})
-
-		// server.timeout = 18000000;
 	} catch (err) {
 		logger.error(__filename, '', '', `Unable to connect to the server`, err)
 		process.exit(1)

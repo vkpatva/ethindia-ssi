@@ -4,7 +4,6 @@ import { createResponse } from '../../utils/helper'
 import { logger } from '../../utils/logger'
 import { io } from '../../server'
 import { auth, resolver, protocol } from '@iden3/js-iden3-auth'
-import { humanReadableAuthReason } from './proofRequests'
 import getRawBody from 'raw-body'
 import path from 'path'
 
@@ -15,7 +14,7 @@ const STATUS = {
 	ERROR: 'ERROR',
 	DONE: 'DONE'
 }
-
+const humanReadableAuthReason = 'Must have a National ID Card'
 const socketMessage = (fn: string, status: string, data: any) => ({
 	fn,
 	status,
