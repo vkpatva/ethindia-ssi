@@ -86,16 +86,15 @@ To successfully run this project, ensure you have the following:
 5. **Run the backend application:**
 
     ```bash
-    npm run dev
+    npm run start
     ```
 
 #### Frontend
 
-1. **Clone the repository:**
+1. **Open new terminal in cloned repo:**
 
     ```bash
-    git clone https://github.com/virajpatva/ethindia-ssi.git
-    cd ethindia-ssi/frontend
+    cd frontend/
     ```
 
 2. **Copy .env.example to .env:**
