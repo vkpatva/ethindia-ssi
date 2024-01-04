@@ -10,7 +10,7 @@ Visit the Ngrok website at [https://dashboard.ngrok.com/signup](https://dashboar
 
 ### 1.2 Obtain Ngrok Auth Token
 
-After signing up, log in to your Ngrok account, and navigate to the [Ngrok Auth page](https://dashboard.ngrok.com/auth). Here, you will find your unique Ngrok authentication token.
+After signing up, log in to your Ngrok account, and navigate to the [Ngrok Auth page](https://dashboard.ngrok.com/get-started/your-authtoken). Here, you will find your unique Ngrok authentication token.
 
 ### 1.3 Install Ngrok
 
@@ -18,13 +18,15 @@ Download and install Ngrok by following the instructions provided on the [Ngrok 
 
 ## 2. Set Auth Token
 
-Open your terminal or command prompt and set your Ngrok authentication token using the following command:
+Open your terminal or command prompt and set your Ngrok authentication token using the following command from your dashboard:
 
-```bash
-ngrok authtoken YOUR_AUTH_TOKEN
-```
+<p>
+    <img src="./imgs/ngrok.png" alt="Ngrok" width="800">
+</p>
 
 Replace `YOUR_AUTH_TOKEN` with the token you obtained in Step 1.2.
+
+you can also 
 
 ## 3. Start Ngrok on Port 4007
 
@@ -36,15 +38,6 @@ ngrok http 4007
 
 Ngrok will generate a public URL that you can share with others, allowing them to access your local server. The URL will be displayed in the terminal/command prompt.
 
-### Additional Options
-
-- If you want to specify a subdomain for your Ngrok URL, you can use the following command:
-
-  ```bash
-  ngrok http -subdomain=YOUR_SUBDOMAIN 4007
-  ```
-
-  Replace `YOUR_SUBDOMAIN` with the desired subdomain.
 
 - For more advanced options and features, refer to the [Ngrok documentation](https://ngrok.com/docs).
 

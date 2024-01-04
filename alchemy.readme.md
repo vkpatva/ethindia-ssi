@@ -18,8 +18,15 @@ Visit the [Alchemy website](https://www.alchemy.com/) and log in to your account
 
 1. From the Alchemy Dashboard, select the project for which you want to obtain the Mumbai Testnet RPC URL.
 
-2. If you don't have a project yet, create one by clicking on the "Create Project" button.
+2. If you don't have a project yet, go to [Application Page](https://dashboard.alchemy.com/apps) create one by clicking on the "Create Project" button.
+<p>
+    <img src="./imgs/alchemy.png" alt="Alchmey" width="800">
+</p>
 
+Select following configuration to create application 
+<p>
+    <img src="./imgs/config.png" alt="Alchmey-config" width="800">
+</p>
 ### Step 3: Navigate to the Dashboard
 
 After selecting or creating a project, you will be directed to the project's dashboard.

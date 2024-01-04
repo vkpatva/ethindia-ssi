@@ -1,6 +1,6 @@
 # Revolutionizing Data Security: Embracing SSI, ZKPs, and Polygon ID in Modern Systems
 
-In an era dominated by online interactions, our digital identities are at the forefront of our concerns. The constant fear of data breaches and unauthorized access to personal information has underscored the vulnerabilities inherent in traditional digital identity systems. Imagine the unsettling scenario of Aadhaar cards leaking or banks falling victim to cyberattacks regularly. The need for a secure and user-centric solution has never been more pressing.
+In an era dominated by online interactions, our digital identities are at the forefront of our concerns. The constant fear of data breaches and unauthorized access to personal information has underscored the vulnerabilities inherent in traditional digital identity systems.  The need for a secure and user-centric solution has never been more pressing.
 
 ## Table of Contents
 - [Revolutionizing Data Security: Embracing SSI, ZKPs, and Polygon ID in Modern Systems](#revolutionizing-data-security-embracing-ssi-zkps-and-polygon-id-in-modern-systems)
@@ -48,9 +48,10 @@ The application issues four verifiable credentials using the Polygon ID issuer n
 ### Requisites
 
 To successfully run this project, ensure you have the following:
-- Polygon ID application to receive and verify Verifiable Credentials.
-- NGROK Auth Token for verification.
-- RPC_URL: To check the status of VCs on-chain (can be obtained from Alchemy/Infura/QuickNode).
+- Polygon ID: Download the Polygon ID Wallet App and create an Identity: Polygon ID on [Google Play](https://play.google.com/store/apps/details?id=com.polygonid.wallet) or on [App Store](https://apps.apple.com/us/app/polygon-id/id1629870183)
+- NGROK: For NGROK setup instructions, refer to [ngrok.readme.md](./ngrok.readme.md).
+- RPC_URL: To obtain the RPC_URL from Alchemy, follow the steps in [alchemy.readme.md](./alchemy.readme.md).
+
 
 ### Setup
 
