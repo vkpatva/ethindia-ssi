@@ -1,20 +1,21 @@
 # Revolutionizing Data Security: Embracing SSI, ZKPs, and Polygon ID in Modern Systems
 
-In an era dominated by online interactions, our digital identities are at the forefront of our concerns. The constant fear of data breaches and unauthorized access to personal information has underscored the vulnerabilities inherent in traditional digital identity systems.  The need for a secure and user-centric solution has never been more pressing.
+In an era dominated by online interactions, our digital identities are at the forefront of our concerns. The constant fear of data breaches and unauthorized access to personal information has underscored the vulnerabilities inherent in traditional digital identity systems. The need for a secure and user-centric solution has never been more pressing.
 
 ## Table of Contents
-- [Revolutionizing Data Security: Embracing SSI, ZKPs, and Polygon ID in Modern Systems](#revolutionizing-data-security-embracing-ssi-zkps-and-polygon-id-in-modern-systems)
-  - [Table of Contents](#table-of-contents)
-  - [Project Description](#project-description)
-  - [Verifiable Credentials](#verifiable-credentials)
-  - [Schema Links](#schema-links)
-  - [Quick Start](#quick-start)
-    - [Requisites](#requisites)
-    - [Setup](#setup)
-      - [Backend](#backend)
-      - [Frontend](#frontend)
-  - [Credits](#credits)
-  - [License](#license)
+
+-   [Revolutionizing Data Security: Embracing SSI, ZKPs, and Polygon ID in Modern Systems](#revolutionizing-data-security-embracing-ssi-zkps-and-polygon-id-in-modern-systems)
+    -   [Table of Contents](#table-of-contents)
+    -   [Project Description](#project-description)
+    -   [Verifiable Credentials](#verifiable-credentials)
+    -   [Schema Links](#schema-links)
+    -   [Quick Start](#quick-start)
+        -   [Prerequisites](#prerequisites)
+        -   [Setup](#setup)
+            -   [Backend](#backend)
+            -   [Frontend](#frontend)
+    -   [Credits](#credits)
+    -   [License](#license)
 
 ## Project Description
 
@@ -25,43 +26,87 @@ Our project aims to address the vulnerabilities in traditional digital identity 
 The application issues four verifiable credentials using the Polygon ID issuer node:
 
 1. **National ID Card:**
-   - Required by the employer to issue employee salary credentials & laboratory to issue lab reports.
+
+    - Required by the employer to issue employee salary credentials & laboratory to issue lab reports.
 
 2. **Employee Schema:**
-   - Required by the insurance company to issue insurance credentials.
+
+    - Required by the insurance company to issue insurance credentials.
 
 3. **Lab Schema:**
-   - Required by the insurance company to issue insurance credentials.
+
+    - Required by the insurance company to issue insurance credentials.
 
 4. **Insurance Schema:**
-   - Issued after verifying both employee and lab verifiable credentials.
+    - Issued after verifying both employee and lab verifiable credentials.
 
 ## Schema Links
 
-- [Employment Schema](https://schema-builder.polygonid.me/schemas/d9263bc8-39f4-465a-a5de-ecdfc441ad31)
-- [National ID Schema](https://schema-builder.polygonid.me/schemas/a4b263d2-149b-4053-87b7-7a3d27151713)
-- [Lab Schema](https://schema-builder.polygonid.me/schemas/0b524eb5-f7d1-42a9-8f7d-559a100a35c5)
-- [Insurance Schema](https://schema-builder.polygonid.me/schemas/4ced05e3-7efe-43b0-ae5d-c923c9bd21bd)
+-   [Employment Schema](https://schema-builder.polygonid.me/schemas/d9263bc8-39f4-465a-a5de-ecdfc441ad31)
+-   [National ID Schema](https://schema-builder.polygonid.me/schemas/a4b263d2-149b-4053-87b7-7a3d27151713)
+-   [Lab Schema](https://schema-builder.polygonid.me/schemas/0b524eb5-f7d1-42a9-8f7d-559a100a35c5)
+-   [Insurance Schema](https://schema-builder.polygonid.me/schemas/4ced05e3-7efe-43b0-ae5d-c923c9bd21bd)
 
 ## Quick Start
 
-### Requisites
+## Prerequisites
 
 To successfully run this project, ensure you have the following:
-- Polygon ID: Download the Polygon ID Wallet App and create an Identity: Polygon ID on [Google Play](https://play.google.com/store/apps/details?id=com.polygonid.wallet) or on [App Store](https://apps.apple.com/us/app/polygon-id/id1629870183)
-- NGROK: For NGROK setup instructions, refer to [ngrok.readme.md](./ngrok.readme.md).
-- RPC_URL: To obtain the RPC_URL from Alchemy, follow the steps in [alchemy.readme.md](./alchemy.readme.md).
 
+-   **Polygon ID**: Download the Polygon ID Wallet App and create an Identity: Polygon ID on [Google Play](https://play.google.com/store/apps/details?id=com.polygonid.wallet) or on [App Store](https://apps.apple.com/us/app/polygon-id/id1629870183)
+-   **NGROK**: For NGROK setup instructions, refer to [ngrok.readme.md](./ngrok.readme.md).
+-   **RPC_URL**: To obtain the RPC_URL from Alchemy, follow the steps in [alchemy.readme.md](./alchemy.readme.md).
+-   **Docker or Node.js**: To run the application locally on your system, you can either run using `Docker` or by starting the project locally using `node.js`
 
-### Setup
+## Setup
 
-#### Backend
-
-1. **Clone the repository:**
+-   **Clone the repository:**
 
     ```bash
     git clone https://github.com/virajpatva/ethindia-ssi.git
-    cd ethindia-ssi/backend
+    cd ethindia-ssi/
+    ```
+
+### Run using Docker
+
+1. **Copy .env.example to .env:**
+
+    ```bash
+    cp .env.example .env
+    ```
+
+2. **Set the required environment variables in `.env` as per example env:**
+
+    ```bash
+    # Example:
+    RPC_URL_MUMBAI=<Obtain from coordinators or create from Alchemy/Infura/rpc.maticvigil.com>
+    NGROK_URL=<Run `ngrok http 4007` and set up an auth token if not set previously>
+    ```
+
+3. **Run the Application using Docker**
+
+    ```bash
+    docker compose up --build
+    ```
+
+4. **Access the Application on port 8000:**
+
+5. **To Stop the Application**
+
+-   Press Ctrl+C on the Terminal to stop the containers, and run the below command to remove the containers.
+
+    ```bash
+    docker compose down
+    ```
+
+### Run Locally
+
+#### Backend
+
+1. **Change Directory:**
+
+    ```bash
+    cd backend
     ```
 
 2. **Copy .env.example to .env:**
@@ -104,23 +149,24 @@ To successfully run this project, ensure you have the following:
     cp .env.example .env
     ```
 
-
-4. **Install dependencies:**
-
-    ```bash
-    yarn
-    ```
-
-5. **Start the project on localhost:5173:**
+3. **Install dependencies:**
 
     ```bash
-    yarn dev
+    npm ci --legacy-peer-deps
     ```
+
+4. **Start the project on localhost:5173:**
+
+    ```bash
+    npm run dev
+    ```
+
+5. **Access the frontend on port 5173:**
 
 ## Credits
 
-- **smartSense Team:** Development support for the project.
-- **Polygon ID Team:** Assistance during the hackathon to build the project.
+-   **smartSense Team:** Development support for the project.
+-   **Polygon ID Team:** Assistance during the hackathon to build the project.
 
 ## License
 
