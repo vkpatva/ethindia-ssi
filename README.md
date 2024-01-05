@@ -64,13 +64,6 @@ To successfully run this project, ensure you have the following:
 
 ## Setup
 
--   **Clone the repository:**
-
-    ```bash
-    git clone https://github.com/virajpatva/ethindia-ssi.git
-    cd ethindia-ssi/
-    ```
-
 -   **Run Ngrok to expose your local port**
 
     ```bash
@@ -79,11 +72,18 @@ To successfully run this project, ensure you have the following:
 
     -   Keep this terminal process running
 
+-   **Clone the repository:**
+
+    -   Open a second Terminal
+
+    ```bash
+    git clone https://github.com/virajpatva/ethindia-ssi.git
+    cd ethindia-ssi/
+    ```
+
 ### Run using Docker
 
 1. **Copy .env.example to .env:**
-
-    - Open a second terminal and navigate to the repo we cloned.
 
     ```bash
     cp .env.example .env
