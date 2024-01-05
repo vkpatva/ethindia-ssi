@@ -47,7 +47,7 @@ class VerifyController {
 					context: 'ipfs://QmRksJWDuy8ViCHt6tnn3Yhb562SooUEgazM5oWgCx4ncC',
 					credentialSubject: {
 						DOB: {
-							$lt: 20010100
+							$lt: 20010101
 						}
 					},
 					type: 'NationalCard'

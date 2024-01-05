@@ -93,7 +93,7 @@ To successfully run this project, ensure you have the following:
     docker compose up --build
     ```
 
-4. **Access the Application on port 8000:**
+4. **Access the Application on port [8000](http://localhost:8000):**
 
 5. **To Stop the Application**
 
@@ -165,7 +165,7 @@ To successfully run this project, ensure you have the following:
     npm run dev
     ```
 
-5. **Access the frontend on port 5173:**
+5. **Access the frontend on port [5173](http://localhost:5173):**
 
 ## Credits
 
