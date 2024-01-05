@@ -34,13 +34,7 @@ After selecting or creating a project, you will be directed to the project's das
 
 ### Step 4: Find Your Mumbai Testnet API Key
 
-1. Look for the "API Key" section on the dashboard. Alchemy provides different API keys for each network.
-
-2. Under the Mumbai Testnet section, you will find your unique API Key labeled as "MUMBAI."
-
-### Step 5: Form the Mumbai Testnet RPC URL
-
-We will use the HTTPs API Url
+-   Look for the "API Key" button on the dashboard. We will use the HTTPs API Url
 
 ```plaintext
 https://rpc-mumbai.alchemyapi.io/v2/YOUR_MUMBAI_API_KEY
