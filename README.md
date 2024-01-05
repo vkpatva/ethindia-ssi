@@ -83,29 +83,35 @@ To successfully run this project, ensure you have the following:
 
 ### Run using Docker
 
-1. **Copy .env.example to .env:**
+1.  **Copy .env.example to .env:**
 
     ```bash
     cp .env.example .env
     ```
 
-2. **Update the `.env` file as below:**
+2.  **Update the `.env` file as below:**
 
     ```bash
-    # Example:
-    RPC_URL_MUMBAI=<Obtain from coordinators or create from Alchemy/Infura/rpc.maticvigil.com>
+    RPC_URL_MUMBAI=<Your RPC Url>
     NGROK_URL=<Ngrok URL of you static domain>
     ```
 
-3. **Run the Application using Docker**
+    -   Example:
+
+    ```bash
+    RPC_URL_MUMBAI=https://polygon-mumbai.g.alchemy.com/v2/xxxxxx-xxxxxxxxxx-xxx
+    NGROK_URL=https://your-static-domain.ngrok-free.app
+    ```
+
+3.  **Run the Application using Docker**
 
     ```bash
     docker compose up --build
     ```
 
-4. **Access the Application on port [8000](http://localhost:8000):**
+4.  **Access the Application on port [8000](http://localhost:8000):**
 
-5. **To Stop the Application**
+5.  **To Stop the Application**
 
 -   Press Ctrl+C on the Terminal to stop the containers, and run the below command to remove the containers.
 
@@ -132,9 +138,15 @@ To successfully run this project, ensure you have the following:
 3. **Set the required environment variables in .env:**
 
     ```bash
-    # Example:
-    RPC_URL_MUMBAI=<Obtain from coordinators or create from Alchemy/Infura/rpc.maticvigil.com>
+    RPC_URL_MUMBAI=<Your RPC Url>
     NGROK_URL=<Ngrok URL of you static domain>
+    ```
+
+    - Example:
+
+    ```bash
+    RPC_URL_MUMBAI=https://polygon-mumbai.g.alchemy.com/v2/xxxxxx-xxxxxxxxxx-xxx
+    NGROK_URL=https://your-static-domain.ngrok-free.app
     ```
 
 4. **Install packages:**
@@ -177,15 +189,6 @@ To successfully run this project, ensure you have the following:
 
 5. **Access the frontend on port [5173](http://localhost:5173):**
 
-## Credits
-
--   **smartSense Team:** Development support for the project.
--   **Polygon ID Team:** Assistance during the hackathon to build the project.
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-```
-
-```
