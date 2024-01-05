@@ -79,7 +79,7 @@ To successfully run this project, ensure you have the following:
     cp .env.example .env
     ```
 
-2. **Set the required environment variables in `.env` as per example env:**
+2. **Update the `.env` file as below:**
 
     ```bash
     # Example:
