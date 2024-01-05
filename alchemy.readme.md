@@ -28,13 +28,18 @@ Select following configuration to create application
 <p>
     <img src="./imgs/config.png" alt="Alchmey-config" width="800">
 </p>
+
 ### Step 3: Navigate to the Dashboard
 
 After selecting or creating a project, you will be directed to the project's dashboard.
 
 ### Step 4: Find Your Mumbai Testnet API Key
 
--   Look for the "API Key" button on the dashboard. We will use the HTTPs API Url
+-   Click on the "API Key" button on the dashboard. We will use the HTTPs API Url from the pop-up.
+
+ <p>
+     <img src="./imgs/connect_alchemy.png" alt="Alchmey" width="800">
+ </p>
 
 ```plaintext
 https://rpc-mumbai.alchemyapi.io/v2/YOUR_MUMBAI_API_KEY
