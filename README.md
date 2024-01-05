@@ -71,9 +71,19 @@ To successfully run this project, ensure you have the following:
     cd ethindia-ssi/
     ```
 
+-   **Run Ngrok to expose your local port**
+
+    ```bash
+    ngrok http --domain=your-static-domain.ngrok-free.app 4007
+    ```
+
+    -   Keep this terminal process running
+
 ### Run using Docker
 
 1. **Copy .env.example to .env:**
+
+    - Open a second terminal and navigate to the repo we cloned.
 
     ```bash
     cp .env.example .env
@@ -84,7 +94,7 @@ To successfully run this project, ensure you have the following:
     ```bash
     # Example:
     RPC_URL_MUMBAI=<Obtain from coordinators or create from Alchemy/Infura/rpc.maticvigil.com>
-    NGROK_URL=<Run `ngrok http --domain=your-domain.ngrok-free.app 4007` and set up an auth token if not set previously>
+    NGROK_URL=<Ngrok URL of you static domain>
     ```
 
 3. **Run the Application using Docker**
@@ -124,7 +134,7 @@ To successfully run this project, ensure you have the following:
     ```bash
     # Example:
     RPC_URL_MUMBAI=<Obtain from coordinators or create from Alchemy/Infura/rpc.maticvigil.com>
-    NGROK_URL=<Run `ngrok http 4007` and set up an auth token if not set previously>
+    NGROK_URL=<Ngrok URL of you static domain>
     ```
 
 4. **Install packages:**
@@ -175,3 +185,7 @@ To successfully run this project, ensure you have the following:
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+```
+
+```

@@ -17,9 +17,6 @@ services:
             context: ./frontend/.
         ports:
             - 8000:80
-        environment:
-            VITE_AUTH: "${VITE_AUTH:-Basic dXNlci1hcGk6cGFzc3dvcmQtYXBp}"
-            VITE_API: "${VITE_API:-Basic dXNlci1hcGk6cGFzc3dvcmQtYXBp}"
         restart: always
         depends_on:
             - ssi-be
