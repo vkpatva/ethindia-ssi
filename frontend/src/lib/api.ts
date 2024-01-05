@@ -1,5 +1,9 @@
 import axios from "axios";
 const HostURL = "https://issuer-admin.polygonid.me";
+const AUTH = import.meta.env.VITE_AUTH
+  ? import.meta.env.VITE_AUTH
+  : "Basic dXNlci1hcGk6cGFzc3dvcmQtYXBp";
+
 export const CreateConnection = async () => {
   const response = await axios.get(`${HostURL}/v1/authentication/qrcode`);
 
@@ -14,7 +18,7 @@ export const GetSessionDetails = async (sessionId: string) => {
     `${HostURL}/v1/authentication/sessions/${sessionId}`,
     {
       headers: {
-        authorization: import.meta.env.VITE_AUTH,
+        authorization: AUTH,
       },
     }
   );
@@ -46,7 +50,7 @@ export const SendGovernmentID = async (userID: string) => {
       {
         headers: {
           Accept: "application/json",
-          authorization: import.meta.env.VITE_AUTH,
+          authorization: AUTH,
           "Content-Type": "application/json",
         },
       }
@@ -81,7 +85,7 @@ export const SendEmploymentVC = async (userID: string) => {
       {
         headers: {
           Accept: "application/json",
-          authorization: import.meta.env.VITE_AUTH,
+          authorization: AUTH,
           "Content-Type": "application/json",
         },
       }
@@ -116,7 +120,7 @@ export const SendLabVC = async (userID: string) => {
       {
         headers: {
           Accept: "application/json",
-          authorization: import.meta.env.VITE_AUTH,
+          authorization: AUTH,
           "Content-Type": "application/json",
         },
       }
@@ -149,7 +153,7 @@ export const SendInsuranceVC = async (userID: string) => {
       {
         headers: {
           Accept: "application/json",
-          authorization: import.meta.env.VITE_AUTH,
+          authorization: AUTH,
           "Content-Type": "application/json",
         },
       }
@@ -165,7 +169,7 @@ export const CheckCredentials = async (sessionID: string) => {
   const url = `${HostURL}/v1/credentials/${sessionID}`;
   const headers = {
     Accept: "application/json",
-    Authorization: import.meta.env.VITE_API,
+    Authorization: AUTH,
   };
 
   try {
@@ -182,7 +186,7 @@ export const fetchGovtQRCode = async (sessionId: string) => {
     `http://localhost:4007/verify/govt-auth-qr?sessionId=${sessionId}`,
     {
       headers: {
-        authorization: import.meta.env.VITE_AUTH,
+        authorization: AUTH,
       },
     }
   );
@@ -195,7 +199,7 @@ export const fetchInsuranceQR = async (sessionId: string) => {
     `http://localhost:4007/verify/insurance-issue-auth-qr?sessionId=${sessionId}`,
     {
       headers: {
-        authorization: import.meta.env.VITE_AUTH,
+        authorization: AUTH,
       },
     }
   );
