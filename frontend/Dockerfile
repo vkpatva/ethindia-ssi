@@ -1,4 +1,4 @@
-FROM node:20-alpine as build
+FROM node:18.15-alpine as build
 
 WORKDIR /app
 
@@ -6,7 +6,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 COPY ./package*.json .
 
-RUN npm ci --legacy-peer-deps
+RUN npm ci
 
 COPY . .
 
