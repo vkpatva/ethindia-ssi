@@ -1,0 +1,63 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: CredentialEvents
+    network: mumbai
+    source:
+      address: "0xFccFd24c6742cF24F8e06b697c4E7d787C8f10Aa"
+      abi: CredentialEvents
+      startBlock: 43379461
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - OwnershipTransferRequested
+        - OwnershipTransferred
+        - RequestFulfilled
+        - RequestSent
+        - claimRequestMade
+        - claimResponse
+        - employmentVCIssued
+        - employmentVCVerified
+        - issuranceVCIssued
+        - issuranceVCVerified
+        - labVCIssued
+        - labVCVerified
+        - nationalVCIssued
+        - nationalVCVerified
+      abis:
+        - name: CredentialEvents
+          file: CredentialEvents/abis/CredentialEvents.json
+      eventHandlers:
+        - event: OwnershipTransferRequested(indexed address,indexed address)
+          handler: handleOwnershipTransferRequested
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: RequestFulfilled(indexed bytes32)
+          handler: handleRequestFulfilled
+        - event: RequestSent(indexed bytes32)
+          handler: handleRequestSent
+        - event: claimRequestMade(indexed address,indexed bytes32)
+          handler: handleclaimRequestMade
+        - event: claimResponse(indexed bytes32,bytes,bytes)
+          handler: handleclaimResponse
+        - event: employmentVCIssued(indexed address)
+          handler: handleemploymentVCIssued
+        - event: employmentVCVerified(indexed address,string)
+          handler: handleemploymentVCVerified
+        - event: issuranceVCIssued(indexed address)
+          handler: handleissuranceVCIssued
+        - event: issuranceVCVerified(indexed address,string)
+          handler: handleissuranceVCVerified
+        - event: labVCIssued(indexed address)
+          handler: handlelabVCIssued
+        - event: labVCVerified(indexed address,string)
+          handler: handlelabVCVerified
+        - event: nationalVCIssued(indexed address)
+          handler: handlenationalVCIssued
+        - event: nationalVCVerified(indexed address,string)
+          handler: handlenationalVCVerified
+      file: CredentialEvents/CredentialEvents.wasm

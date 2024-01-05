@@ -48,7 +48,7 @@ export const Employment = () => {
                   </p>
                 </div>
                 <div className="pt-6 flex-1 mb-6">
-                  <p className="dark:text-white">
+                  <p className="text-white">
                     Level up your career effortlessly with an Employment
                     Verifiable Credential, showcasing salary and work history
                     seamlessly. Streamline your enrollment process, presenting a
@@ -95,7 +95,7 @@ export const Employment = () => {
                   </p>
                 </div>
                 <div className="pt-6 flex-1 mb-6">
-                  <p className="dark:text-white">
+                  <p className="text-white">
                     To issue Employment, the company needs to verify your valid
                     National ID. Please provide the necessary details for a
                     smooth verification process.
@@ -143,7 +143,7 @@ export const Employment = () => {
                   </p>
                 </div>
                 <div className="pt-6 flex-1 mb-6">
-                  <p className="dark:text-white">
+                  <p className="text-white">
                     You should have a notification from your phone. Check your
                     wallet! We’ve sent you the employment credentials.
                     Experience the power of verifiable credentials for secure

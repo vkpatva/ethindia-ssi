@@ -50,7 +50,7 @@ export const Insurance = () => {
                   </p>
                 </div>
                 <div className="pt-6 flex-1 mb-6">
-                  <p className="dark:text-white">
+                  <p className="text-white">
                     Secure your future with ease through a Term Insurance
                     Verifiable Credential. Simplify the enrollment journey,
                     presenting a clear and verified overview of your coverage.
@@ -148,7 +148,7 @@ export const Insurance = () => {
                   </p>
                 </div>
                 <div className="pt-6 flex-1 mb-6">
-                  <p className="dark:text-white">
+                  <p className="text-white">
                     You should have a notification from your phone. Check your
                     wallet! We’ve sent you the Insurance credentials. Experience
                     the power of verifiable credentials for secure and seamless

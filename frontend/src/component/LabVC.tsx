@@ -47,7 +47,7 @@ export const Lab = () => {
                   </p>
                 </div>
                 <div className="pt-6 flex-1 mb-6">
-                  <p className="dark:text-white">
+                  <p className="text-white">
                     Get your Laboratory Verifiable Credential, empowering you
                     with key health insights. Take control of your well-being
                     with a comprehensive and secure health profile. Your path to
@@ -93,7 +93,7 @@ export const Lab = () => {
                   </p>
                 </div>
                 <div className="pt-6 flex-1 mb-6">
-                  <p className="dark:text-white">
+                  <p className="text-white">
                     To facilitate the issuance of your Lab Report Verifiable
                     Credential, we need to verify your valid National ID. Kindly
                     provide the necessary details for a smooth verification
@@ -142,7 +142,7 @@ export const Lab = () => {
                   </p>
                 </div>
                 <div className="pt-6 flex-1 mb-6">
-                  <p className="dark:text-white">
+                  <p className="text-white">
                     You should have a notification from your phone. Check your
                     wallet! We’ve sent you the Lab credentials. Experience the
                     power of verifiable credentials for secure and seamless

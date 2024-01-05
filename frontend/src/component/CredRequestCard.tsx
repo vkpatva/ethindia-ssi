@@ -7,7 +7,7 @@ export const CredReqCard = ({ title, logo, content }: CredInfoProps) => {
   return (
     <div className="bg-[#202223] m-2 px-4 py-2 w-96 rounded-lg shadow border border-1 border-[#333]">
       <div className="mt-[2px]">
-        <h1 className="font-semibold dark:text-white">{title}</h1>
+        <h1 className="font-semibold text-white">{title}</h1>
         <hr className="text-[#333] mt-[2px]" />
       </div>
       <div className="flex items-center justify-between mt-[10px]">
