@@ -12,8 +12,10 @@ In an era dominated by online interactions, our digital identities are at the fo
     -   [Quick Start](#quick-start)
         -   [Prerequisites](#prerequisites)
         -   [Setup](#setup)
-            -   [Backend](#backend)
-            -   [Frontend](#frontend)
+            -   [Run using Docker](#run-using-docker)
+            -   [Run Locally](#run-locally)
+                -   [Backend](#backend)
+                -   [Frontend](#frontend)
     -   [Credits](#credits)
     -   [License](#license)
 
@@ -54,6 +56,8 @@ The application issues four verifiable credentials using the Polygon ID issuer n
 To successfully run this project, ensure you have the following:
 
 -   **Polygon ID**: Download the Polygon ID Wallet App and create an Identity: Polygon ID on [Google Play](https://play.google.com/store/apps/details?id=com.polygonid.wallet) or on [App Store](https://apps.apple.com/us/app/polygon-id/id1629870183)
+    -   Change the Default network to Polygon Mumbai
+    -   Make sure you have enabled notifications for this app(if explicitly denied on your phone)
 -   **NGROK**: For NGROK setup instructions, refer to [ngrok.readme.md](./ngrok.readme.md).
 -   **RPC_URL**: To obtain the RPC_URL from Alchemy, follow the steps in [alchemy.readme.md](./alchemy.readme.md).
 -   **Docker or Node.js**: To run the application locally on your system, you can either run using `Docker` or by starting the project locally using `node.js`
