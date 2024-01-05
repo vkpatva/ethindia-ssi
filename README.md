@@ -84,7 +84,7 @@ To successfully run this project, ensure you have the following:
     ```bash
     # Example:
     RPC_URL_MUMBAI=<Obtain from coordinators or create from Alchemy/Infura/rpc.maticvigil.com>
-    NGROK_URL=<Run `ngrok http 4007` and set up an auth token if not set previously>
+    NGROK_URL=<Run `ngrok http --domain=your-domain.ngrok-free.app 4007` and set up an auth token if not set previously>
     ```
 
 3. **Run the Application using Docker**

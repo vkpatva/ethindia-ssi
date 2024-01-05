@@ -19,11 +19,12 @@ Visit the [Alchemy website](https://www.alchemy.com/) and log in to your account
 1. From the Alchemy Dashboard, select the project for which you want to obtain the Mumbai Testnet RPC URL.
 
 2. If you don't have a project yet, go to [Application Page](https://dashboard.alchemy.com/apps) create one by clicking on the "Create Project" button.
-<p>
-    <img src="./imgs/alchemy.png" alt="Alchmey" width="800">
-</p>
+ <p>
+     <img src="./imgs/alchemy.png" alt="Alchmey" width="800">
+ </p>
 
-Select following configuration to create application 
+Select following configuration to create application
+
 <p>
     <img src="./imgs/config.png" alt="Alchmey-config" width="800">
 </p>
@@ -39,24 +40,18 @@ After selecting or creating a project, you will be directed to the project's das
 
 ### Step 5: Form the Mumbai Testnet RPC URL
 
-Compose the Mumbai Testnet RPC URL using the obtained API Key:
+We will use the HTTPs API Url
 
 ```plaintext
 https://rpc-mumbai.alchemyapi.io/v2/YOUR_MUMBAI_API_KEY
 ```
 
-Replace `YOUR_MUMBAI_API_KEY` with the API Key you obtained from the Alchemy dashboard.
-
-### Step 6: Test the RPC URL
-
-To ensure that the RPC URL is functioning correctly, you can use it in your Ethereum development environment or tools that support custom RPC configurations.
-
-Congratulations! You have successfully retrieved the Mumbai Testnet RPC URL from Alchemy.
+Keep you RPC Url handy, it will be used in the steps to setup the app on your system.
 
 ## Additional Notes
 
-- Keep your API keys secure. Do not share them publicly.
-- Ensure that your Alchemy project is funded to cover potential usage costs on the Mumbai Testnet.
-- If you encounter issues or have questions, refer to the Alchemy documentation or contact Alchemy support.
+-   Keep your API keys secure. Do not share them publicly.
+-   Ensure that your Alchemy project is funded to cover potential usage costs on the Mumbai Testnet.
+-   If you encounter issues or have questions, refer to the Alchemy documentation or contact Alchemy support.
 
 Feel free to reach out if you need further assistance or clarification. Happy coding!
