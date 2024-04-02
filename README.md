@@ -77,8 +77,8 @@ To successfully run this project, ensure you have the following:
     -   Open a second Terminal
 
     ```bash
-    git clone https://github.com/virajpatva/ethindia-ssi.git
-    cd ethindia-ssi/
+    git clone https://github.com/vkpatva/polygon-id-demo
+    cd polygon-id-demo/
     ```
 
 ### Run using Docker
