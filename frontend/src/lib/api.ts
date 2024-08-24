@@ -1,5 +1,8 @@
-import axios from "axios";
-const HostURL = "https://issuer-admin.polygonid.me";
+import axios from "axios"; 
+// const HostURL = "https://issuer-admin.polygonid.me";
+// const HostURL = "http://3.226.252.120:3002"; 
+const HostURL  : string = import.meta.env.VITE_ISSUER_API
+
 const AUTH = import.meta.env.VITE_AUTH
   ? import.meta.env.VITE_AUTH
   : "Basic dXNlci1hcGk6cGFzc3dvcmQtYXBp";
@@ -36,7 +39,7 @@ export const SendGovernmentID = async (userID: string) => {
       `${HostURL}/v1/credentials`,
       {
         credentialSchema:
-          "ipfs://QmfQhst5Kn3zDP8haepknsPfuTwRzQYdbR6cnDYK7U1Pni",
+          "ipfs://QmdZwFmygXFnoimfStt1riowVQJYm7VZevfETKB9wgUtUM",
         credentialSubject: {
           National_Id: "IND0003",
           DOB: 19990101,
